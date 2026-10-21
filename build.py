@@ -425,6 +425,8 @@ if __name__=='__main__':
         isPost=p in POSTS
         path=re.sub(r'https?://(www\.)?emmelinekoh\.sg/','',p['link']).strip('/')
         if not path: continue
+        ov=f'{OUT}/overrides/{p["slug"]}.html'
+        if os.path.exists(ov): p=dict(p,content={'rendered':open(ov).read()})
         kind,main=render(p,isPost)
         t=page_title(p['title']['rendered'])
         doc=head(f'{E(t)} | Emmeline Koh (Design preview)')+nav()+f'<main class="pg pg--{kind}">{main}</main>'+foot()+'</body></html>'
