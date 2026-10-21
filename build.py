@@ -366,7 +366,7 @@ def add_ids(htm):
     return re.sub(r'<section (class="sec [^"]*")',lambda m:f(m),htm)
 def calculator(p):
     c=p['content']['rendered']
-    scr=re.findall(r'(?s)<script[^>]*>(.*?)</script>',c)[0]
+    scr=html.unescape(re.findall(r'(?s)<script[^>]*>(.*?)</script>',c)[0])
     scr=scr.replace('if(!EK_FORM_ID){unlock();return}','location.href="mailto:solidhomesbyemmeline@gmail.com?subject="+encodeURIComponent("Affordability calculator enquiry")+"&body="+encodeURIComponent("Name: "+$("g-name").value+"\\nMobile: "+$("g-mobile").value+"\\nEmail: "+$("g-email").value+"\\n\\n"+summary);unlock();$("ekc-ty").hidden=false;return;if(!EK_FORM_ID){unlock();return}',1)
     soup=BeautifulSoup(re.sub(r'(?s)<script.*?</script>|<style.*?</style>|<!--.*?-->','',c),'html.parser')
     root=soup.find(id='ekc')
