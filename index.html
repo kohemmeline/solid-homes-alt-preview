@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="/solid-homes-alt-preview/chrome.css"><link rel="stylesheet" href="/solid-homes-alt-preview/assets/wp.css"><link rel="stylesheet" href="/solid-homes-alt-preview/assets/home-wp.css">
+<link rel="stylesheet" href="/solid-homes-alt-preview/chrome.css"><link rel="stylesheet" href="/solid-homes-alt-preview/site.css">
 </head>
 <body>
 <header class="k-nav" id="kNav"><a href="/solid-homes-alt-preview/" class="k-brand" aria-label="Solid Homes by Emmeline Koh, home"><img src="/solid-homes-alt-preview/assets/logo-on-dark.svg" alt="Solid Homes" width="200" height="46"></a>
@@ -29,6 +29,7 @@
   <p class="cea">Emmeline Koh · CEA Reg. No. R045542G · PropNex Realty Pte. Ltd.</p>
 </section>
 
+<button class="snd" id="snd" type="button" aria-pressed="false" aria-label="Sound on: play ambient music"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="snd-t">Sound on</span></button>
 <section class="film" aria-label="Condo walkthrough video">
   <div class="film-head"><p class="eyebrow">Step inside</p><h2 class="mega-sm light">Walk the home<br>before you buy it.</h2></div>
   <div class="film-frame">
@@ -50,392 +51,75 @@
   </div>
 </section>
 
-<section class="home-live" id="services"><div class="wp"><div id="main">
-<style>.wp{--font-heading:'Inter',sans-serif !important;--font-body:'Inter',sans-serif !important;--accent:#171717 !important;--text-primary:#171717 !important;}.wp *{}.wp h1,.wp h2,.wp h3,.wp h4,.wp .display,.wp .subheading{font-weight:650 !important;letter-spacing:-.02em !important;}.wp [style*="#1E1E1E"]{background:#171717 !important;}.wp [style*="#1E1E1E!important"]{background:#171717 !important;}.wp [style*="#C8A96B"]{color:#171717 !important;background:#f2f2f2 !important;}.wp [style*="#C8A96B!important"]{color:#171717 !important;background:#f2f2f2 !important;}.wp [style*="#F5F2ED"],.wp [style*="#F8F6F2"],.wp [style*="#F5F0E8"]{background:#fafafa !important;border-color:#e8e8e6 !important;}.wp [style*="#EDE7DF"],.wp [style*="#E2D9CE"],.wp [style*="#E0DDD7"],.wp [style*="#F0EBE2"]{border-color:#e8e8e6 !important;}.wp [style*="#E4DDD0"]{border-color:#e8e8e6 !important;}.wp [style*="#8B7355"]{color:#171717 !important;}.wp [style*="#5C5C5C"]{color:#4a4a4a !important;}.wp [style*="#9A9A9A"],.wp [style*="#999"],.wp [style*="#888"]{color:#9a9a9e !important;}.wp [style*="3px solid #243447"]{border-left-color:#171717 !important;border-top-color:#171717 !important;}.wp [style*="3px solid var(--accent)"]{border-left-color:#171717 !important;border-top-color:#171717 !important;}.wp [style*="4px solid #243447"]{border-left-color:#171717 !important;}.wp [style*="3px solid #243447"]{border-left-color:#171717 !important;}.wp [style*="#243447"]{color:#171717 !important;border-color:#171717 !important;}.wp a[style*="#25D366"]{background:#1FAA59 !important;color:#fff !important;border-radius:10px !important;}.wp a[style*="border-radius:50px"],.wp a[style*="border-radius:999px"]{border-radius:10px !important;}.wp [style*="border-radius:12px"]{border-radius:14px !important;}.wp [style*="border-radius:8px"]{border-radius:10px !important;}.wp [style*="border-radius:16px"]{border-radius:16px !important;}.wp h1[style]{font-size:clamp(36px,6vw,56px) !important;line-height:1.05 !important;font-weight:700 !important;letter-spacing:-.03em !important;}.wp </p>
-<p>
-section div[style*="repeat(auto-fill,.wp minmax(300px,.wp 1fr))"],.wp section div[style*="repeat(auto-fill,.wp minmax(280px,.wp 1fr))"]{
-  display:flex !important;
-  flex-wrap:nowrap !important;
-  gap:14px !important;
-  overflow-x:auto !important;
-  scroll-snap-type:x mandatory !important;
-  padding-bottom:10px !important;
-  -webkit-overflow-scrolling:touch !important;
-}.wp section div[style*="repeat(auto-fill,.wp minmax(300px,.wp 1fr))"] br,.wp section div[style*="repeat(auto-fill,.wp minmax(280px,.wp 1fr))"] br{display:none !important;}.wp section div[style*="repeat(auto-fill,.wp minmax(300px,.wp 1fr))"] > a,.wp section div[style*="repeat(auto-fill,.wp minmax(280px,.wp 1fr))"] > a{
-  flex:0 0 auto !important;
-  width:340px !important;
-  height:230px !important;
-  border-radius:12px !important;
-  overflow:hidden !important;
-  border:1px solid #e8e8e6 !important;
-  background:#fafafa !important;
-  scroll-snap-align:start !important;
-  display:block !important;
-}.wp section div[style*="repeat(auto-fill,.wp minmax(300px,.wp 1fr))"] > a img,.wp section div[style*="repeat(auto-fill,.wp minmax(280px,.wp 1fr))"] > a img{
-  width:100% !important;
-  height:100% !important;
-  object-fit:cover !important;
-  display:block !important;
-  background:#fafafa !important;
-}@media(max-width:760px){.wp section div[style*="repeat(auto-fill,.wp minmax(300px,.wp 1fr))"] > a,.wp section div[style*="repeat(auto-fill,.wp minmax(280px,.wp 1fr))"] > a{width:260px !important;height:190px !important;}}.wp section div[style*="repeat(auto-fill,.wp minmax(300px,.wp 1fr))"]{scrollbar-width:thin;}.wp section div[style*="repeat(auto-fill,.wp minmax(300px,.wp 1fr))"]::-webkit-scrollbar{height:6px;}.wp section div[style*="repeat(auto-fill,.wp minmax(300px,.wp 1fr))"]::-webkit-scrollbar-thumb{background:#cfcfca;border-radius:6px;}</style>
-<p><script>
-(function(){
-function apply(){document.querySelectorAll('[style]').forEach(function(el){var s=el.getAttribute('style')||'';
-var ns=s.replace(/#1E1E1E/gi,'#171717').replace(/color\s*:\s*#C8A96B\s*!important/gi,'color:#FFFFFF !important').replace(/color:\s*#C8A96B;/gi,'color:#FFFFFF;');
-if(ns!==s)el.setAttribute('style',ns);});}
-if(document.readyState!=='loading')apply();else document.addEventListener('DOMContentLoaded',apply);
-window.addEventListener('load',function(){setTimeout(apply,300);window.setTimeout(apply,1200);});
-})();
-</script></p>
-<style>.wp{
---bg-cream: #F7F4EF;
---bg-warm: #F7F7F5;
---bg-ivory: #F0EBE3;
---text-dark: #1A1A1A;
---text-body: #2C2C2C;
---text-mid: #6B6B6B;
---text-light: #9A9A9A;
---accent: #C9A96E;
---accent-light: #E8D5B0;
---line: #E2D9CE;
---white: #FFFFFF;
---header: 'Playfair Display', Georgia, serif;
---body: 'Inter', -apple-system, sans-serif;
-}.wp </p>
-<p>
-*,.wp *::before,.wp *::after{ box-sizing: border-box; }.wp{ font-family: var(--body); font-size: 16px; line-height: 1.7; color: var(--text-body); -webkit-font-smoothing: antialiased; }.wp h1,.wp h2,.wp h3,.wp h4,.wp h5{ font-family: var(--header); font-weight: 500; color: var(--text-dark); }.wp h1{ font-size: clamp(32px,4vw,52px); line-height: 1.08; margin: 0; }.wp h2{ font-size: clamp(22px,2.8vw,36px); line-height: 1.15; margin: 0; }.wp h3{ font-size: 17px; line-height: 1.3; margin: 0 0 8px; }.wp p{ margin: 0; }.wp .t-sm{ font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }.wp .t-xs{ font-size: 12px; }.wp .t-body{ font-size: 15px; line-height: 1.7; color: var(--text-body); }.wp .t-mid{ font-size: 14px; color: var(--text-mid); }.wp .t-light{ font-size: 12px; color: var(--text-light); }.wp .t-accent{ color: var(--accent); }.wp .t-white{ color: #FFF; }.wp </p>
-<p>
-.wrap{ max-width: 1200px; margin: 0 auto; padding: 0 24px; }.wp .wrap-sm{ max-width: 720px; margin: 0 auto; padding: 0 24px; }.wp .sec{ padding: 80px 0; }.wp .sec-warm{ background: var(--bg-warm); padding: 80px 0; }.wp .txt-c{ text-align: center; }.wp </p>
-<p>
-.g4{ display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }.wp .g3{ display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }.wp .g2{ display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }.wp </p>
-<p>
-.card{ background: var(--white); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; transition: transform 0.25s, box-shadow 0.25s; text-decoration: none; display: block; color: inherit; }.wp .card:hover{ transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.08); }.wp .card-img{ height: 110px; background-size: cover; background-position: center; }.wp .card-bd{ padding: 20px; }.wp .card-tag{ display: inline-block; padding: 2px 10px; background: #F5EDD8; color: var(--accent); font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 999px; margin-bottom: 8px; }.wp .card h3{ font-size: 17px; margin-bottom: 8px; }.wp .card p{ font-size: 14px; color: var(--text-mid); line-height: 1.6; margin-bottom: 12px; }.wp .card-cta{ font-size: 13px; font-weight: 500; color: var(--accent); text-decoration: none; }.wp .card-cta:hover{ text-decoration: underline; }.wp </p>
-<p>
-.btn{ display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 10px; text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s; color: inherit; }.wp .btn-pri{ background: var(--text-dark); color: var(--white); }.wp .btn-pri:hover{ background: #333; }.wp .btn-ghost{ background: transparent; color: var(--text-dark); border: 1.5px solid #D4C9B5; }.wp .btn-ghost:hover{ border-color: var(--accent); }.wp .btn-gold{ background: var(--accent); color: var(--text-dark); }.wp .btn-gold:hover{ background: #B8935A; }.wp .btn-ghost-w{ background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.3); }.wp .btn-ghost-w:hover{ border-color: var(--accent); }.wp .btn-pill{ display: inline-block; padding: 6px 16px; border-radius: 999px; font-size: 12px; color: var(--text-light); text-decoration: none; background: var(--white); transition: color 0.2s; }.wp .btn-pill:hover{ color: var(--accent); }.wp </p>
-<p>
-.stat-g{ display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }.wp .stat-c{ text-align: center; padding: 40px 24px; }.wp .stat-c + .stat-c{ border-left: 1px solid var(--line); }.wp .stat-n{ font-family: var(--header); font-size: 48px; font-weight: 500; color: var(--text-dark); line-height: 1; margin-bottom: 6px; }.wp .stat-n small{ font-size: 24px; color: var(--accent); }.wp .stat-l{ font-size: 11px; color: var(--text-light); letter-spacing: 0.08em; text-transform: uppercase; }.wp </p>
-<p>
-.hg{ display: grid; grid-template-columns: 1fr 1fr; min-height: 520px; }.wp .ht{ background: linear-gradient(135deg,var(--bg-cream),var(--bg-ivory)); padding: 80px 48px; display: flex; flex-direction: column; justify-content: center; }.wp .hi{ background-size: cover; background-position: center; min-height: 520px; }.wp .hi-in{ max-width: 480px; }.wp </p>
-<p>
-.tc{ background: var(--bg-warm); border-radius: 12px; padding: 32px; }.wp .tq{ font-family: var(--header); font-size: 56px; color: var(--accent); line-height: 0.5; margin-bottom: 16px; opacity: 0.5; }.wp .tt{ font-size: 15px; color: var(--text-body); line-height: 1.7; margin-bottom: 20px; }.wp .ta{ display: flex; align-items: center; gap: 12px; }.wp .tav{ width: 40px; height: 40px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 13px; font-weight: 600; flex-shrink: 0; }.wp .tn{ font-size: 14px; font-weight: 600; color: var(--text-dark); }.wp .td{ font-size: 12px; color: var(--text-light); }.wp </p>
-<p>
-.cta-b{ background: var(--text-dark); border-radius: 12px; padding: 56px 40px; text-align: center; }.wp </p>
-<p>
-.divider{ height: 1px; background: var(--line); border: none; margin: 0; }.wp .divider-accent{ width: 48px; height: 2px; background: var(--accent); border: none; margin: 24px 0; }.wp .mt-16{ margin-top: 16px; }.wp .mt-24{ margin-top: 24px; }.wp .mt-32{ margin-top: 32px; }.wp .mt-40{ margin-top: 40px; }.wp .mb-8{ margin-bottom: 8px; }.wp .mb-16{ margin-bottom: 16px; }.wp .mb-24{ margin-bottom: 24px; }.wp .spacer-16{ height: 16px; }.wp .gap-6{ gap: 6px; }.wp .gap-8{ gap: 8px; }.wp .gap-12{ gap: 12px; }.wp .wrap-g{ display: flex; flex-wrap: wrap; }.wp .cred-chip{ display: inline-block; padding: 4px 12px; background: var(--bg-warm); border-radius: 999px; color: var(--text-mid); }.wp </p>
-<p>
-@media (max-width: 1024px){ .g4 { grid-template-columns: repeat(2,1fr); }.wp }
-@media (max-width: 768px){
-  .hg { grid-template-columns: 1fr; }.wp .ht{ padding: 48px 24px; }.wp .hi{ min-height: 280px; }.wp .g4,.wp .g3,.wp .g2{ grid-template-columns: 1fr; }.wp .stat-g{ grid-template-columns: 1fr; }.wp .stat-c + .stat-c{ border-left: none; border-top: 1px solid var(--line); }.wp .sec,.wp .sec-warm{ padding: 48px 0; }</style>
-<p><!-- ═══ HERO ═══ --></p>
-<div class="hg">
-<div class="ht">
-<div class="hi-in">
-<p class="t-sm t-accent mb-16">Singapore Property Strategist</p>
-<h1>Property Decisions Are Too Important<br />to Leave to <em style="color:var(--accent);font-style:italic;">Guesswork</em></h1>
-<p class="t-body mt-16 mb-24" style="max-width:440px;">Guidance, market insights and strategic property advice for Singapore buyers, sellers and upgraders. No fluff. Just clarity.</p>
-<div class="wrap-g gap-12 mb-24">
-<a href="https://wa.me/6582754135" target="_blank" rel="noopener" class="btn btn-pri">Book a Strategy Consultation</a><br />
-<a href="/solid-homes-alt-preview/property-guides/" class="btn btn-ghost">Explore Guides</a>
-</div>
-<div class="wrap-g gap-6" style="padding-top:24px;border-top:1px solid var(--line);">
-<a href="/solid-homes-alt-preview/what-is-absd-singapore/" class="btn-pill">What is ABSD?</a><br />
-<a href="/solid-homes-alt-preview/cpf-condo-guide/" class="btn-pill">Can I use CPF?</a><br />
-<a href="/solid-homes-alt-preview/keep-hdb-buy-condo/" class="btn-pill">Keep HDB &amp; buy condo?</a><br />
-<a href="/solid-homes-alt-preview/how-much-to-buy-condo/" class="btn-pill">How much do I need?</a><br />
-<a href="/solid-homes-alt-preview/salary-needed-for-condo/" class="btn-pill">What salary do I need?</a>
-</div>
-</div>
-</div>
-<div class="hi" style="background-image:linear-gradient(135deg,rgba(0,0,0,0.05),rgba(0,0,0,0.15)),url(/solid-homes-alt-preview/assets/img/2026-07-jurong-skyline.webp);"></div>
-</div>
-<p><!-- ═══ QUICK LINK CARDS ═══ --></p>
-<div class="wrap" style="margin-top:-40px;position:relative;z-index:5;">
-<div class="g4">
-<a href="/solid-homes-alt-preview/new-launch-singapore/" class="card"></p>
-<div class="card-img" style="background-image:linear-gradient(135deg,rgba(0,0,0,0.1),rgba(0,0,0,0.2)),url(/solid-homes-alt-preview/assets/img/2026-07-new-launch-condo.webp);"></div>
-<div class="card-bd">
-<h3>New Launches</h3>
-<p class="t-mid">Latest projects &amp; pricing</p>
-</div>
-<p></a><br />
-<a href="/solid-homes-alt-preview/property-news/" class="card"></p>
-<div class="card-img" style="background-image:linear-gradient(135deg,rgba(0,0,0,0.1),rgba(0,0,0,0.2)),url(/solid-homes-alt-preview/assets/img/2026-07-market-analytics.webp);"></div>
-<div class="card-bd">
-<h3>Market Reports</h3>
-<p class="t-mid">GLS, cooling measures &amp; trends</p>
-</div>
-<p></a><br />
-<a href="/solid-homes-alt-preview/upgrade-property-singapore/" class="card"></p>
-<div class="card-img" style="background-image:linear-gradient(135deg,rgba(0,0,0,0.1),rgba(0,0,0,0.2)),url(/solid-homes-alt-preview/assets/img/2026-07-hdb-upgrading.webp);"></div>
-<div class="card-bd">
-<h3>HDB Upgrading</h3>
-<p class="t-mid">Step-by-step upgrade guide</p>
-</div>
-<p></a><br />
-<a href="/solid-homes-alt-preview/property-investment-singapore/" class="card"></p>
-<div class="card-img" style="background-image:linear-gradient(135deg,rgba(0,0,0,0.1),rgba(0,0,0,0.2)),url(/solid-homes-alt-preview/assets/img/2026-07-investment-concept.webp);"></div>
-<div class="card-bd">
-<h3>Investment</h3>
-<p class="t-mid">Portfolio &amp; rental strategy</p>
-</div>
-<p></a>
-</div>
-</div>
-<p><!-- ═══ STATS ═══ --></p>
-<div class="wrap" style="padding-top:64px;padding-bottom:64px;">
-<div class="stat-g">
-<div class="stat-c">
-<div class="stat-n">15<small>+</small></div>
-<div class="stat-l">Years in Singapore Real Estate</div>
-</div>
-<div class="stat-c">
-<div class="stat-n">500<small>+</small></div>
-<div class="stat-l">Families Advised</div>
-</div>
-<div class="stat-c">
-<div class="stat-n">$250<small>M+</small></div>
-<div class="stat-l">Transaction Value Facilitated</div>
-</div>
-</div>
-</div>
-<p><!-- ═══ ABOUT ═══ --></p>
-<section class="sec">
-<div class="wrap">
-<div class="g2" style="align-items:center;gap:64px;">
-<div>
-<p class="t-sm t-accent mb-16">Your Adviser</p>
-<hr class="divider-accent">
-<h2>Not Just a Property Agent.<br />A Property Strategist.</h2>
-<p class="t-body mt-16 mb-16" style="max-width:540px;">With over 15 years in Singapore real estate, I&#8217;ve helped hundreds of families make property decisions they didn&#8217;t regret — not just transactions that closed.</p>
-<p class="t-body mb-24" style="max-width:540px;">My approach is built around three things: understanding your full financial picture, knowing the Singapore market deeply, and giving you honest advice — even when the honest answer is &#8220;not yet.&#8221;</p>
-<div class="wrap-g gap-8 mb-24">
-<span class="t-sm t-accent" style="text-transform:none;letter-spacing:0;">15+ Years</span><br />
-<span style="color:var(--line);">|</span><br />
-<span class="t-sm t-accent" style="text-transform:none;letter-spacing:0;">New Launches</span><br />
-<span style="color:var(--line);">|</span><br />
-<span class="t-sm t-accent" style="text-transform:none;letter-spacing:0;">Resale Condos</span><br />
-<span style="color:var(--line);">|</span><br />
-<span class="t-sm t-accent" style="text-transform:none;letter-spacing:0;">Asset Progression</span><br />
-<span style="color:var(--line);">|</span><br />
-<span class="t-sm t-accent" style="text-transform:none;letter-spacing:0;">HDB Upgrading</span>
-</div>
-<p><a href="/solid-homes-alt-preview/about-us/" class="btn btn-ghost">Learn More About Emmeline</a>
-</div>
-<div>
-<div style="border-radius:12px;overflow:hidden;aspect-ratio:4/5;background:var(--bg-ivory);"><img decoding="async" src="/solid-homes-alt-preview/assets/img/2026-06-emmeline-koh-profile.webp" alt="Emmeline Koh" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
-</div>
-</div>
-</div>
-</section>
-<p><!-- ═══ PROPERTY INTELLIGENCE ═══ --></p>
-<section class="sec-warm">
-<div class="wrap txt-c">
-<p class="t-sm t-accent mb-16">Singapore Property Intelligence</p>
-<div class="spacer-16"></div>
-<h2>Research. Compare. Decide.</h2>
-<p class="t-mid mt-16" style="max-width:560px;margin-left:auto;margin-right:auto;">Original analysis and practical tools to help you make confident property decisions.</p>
-</div>
-<div class="wrap" style="margin-top:40px;">
-<div class="g4">
-<div class="card">
-<div class="card-img" style="background-image:linear-gradient(135deg,rgba(0,0,0,0.1),rgba(0,0,0,0.2)),url(/solid-homes-alt-preview/assets/img/2026-07-new-launch-condo.webp);"></div>
-<div class="card-bd">
-<h3>New Launch Hub</h3>
-<p>Compare prices, layouts, locations, and developer track records across Singapore&#8217;s latest projects.</p>
-<p><a href="/solid-homes-alt-preview/new-launch-singapore/" class="card-cta">Explore projects &rarr;</a></div>
-</div>
-<div class="card">
-<div class="card-img" style="background-image:linear-gradient(135deg,rgba(0,0,0,0.1),rgba(0,0,0,0.2)),url(/solid-homes-alt-preview/assets/img/2026-07-market-analytics.webp);"></div>
-<div class="card-bd">
-<h3>Market Reports</h3>
-<p>GLS analysis, cooling measures impact, district trends, and OCR vs CCR comparisons updated regularly.</p>
-<p><a href="/solid-homes-alt-preview/property-news/" class="card-cta">Read analysis &rarr;</a></div>
-</div>
-<div class="card">
-<div class="card-img" style="background-image:linear-gradient(135deg,rgba(0,0,0,0.1),rgba(0,0,0,0.2)),url(/solid-homes-alt-preview/assets/img/2026-07-hdb-upgrading.webp);"></div>
-<div class="card-bd">
-<h3>Upgrade Strategist</h3>
-<p>Step-by-step HDB-to-private guides with cost breakdowns, CPF rules, and timing strategies for upgraders.</p>
-<p><a href="/solid-homes-alt-preview/upgrade-property-singapore/" class="card-cta">Plan your upgrade &rarr;</a></div>
-</div>
-<div class="card">
-<div class="card-img" style="background-image:linear-gradient(135deg,rgba(0,0,0,0.1),rgba(0,0,0,0.2)),url(/solid-homes-alt-preview/assets/img/2026-07-buyer-guides.webp);"></div>
-<div class="card-bd">
-<h3>Buyer Guides</h3>
-<p>ABSD explained, school planning, MRT proximity analysis, and financing calculators for informed decisions.</p>
-<p><a href="/solid-homes-alt-preview/property-guides/" class="card-cta">Browse guides &rarr;</a></div>
-</div>
-</div>
-</div>
-</section>
-<p><!-- ═══ GUIDES ═══ --></p>
-<section class="sec">
-<div class="wrap txt-c">
-<p class="t-sm t-accent mb-16">Read. Learn. Decide.</p>
-<div class="spacer-16"></div>
-<h2>Property Guides</h2>
-<p class="t-mid mt-16" style="max-width:560px;margin-left:auto;margin-right:auto;">Curated guides written for Singapore homeowners, investors and upgraders. No jargon. No fluff. Just what you need to know.</p>
-</div>
-<div class="wrap mt-40">
-<div class="g3">
-<a href="/solid-homes-alt-preview/what-is-absd-singapore/" class="card"></p>
-<div class="card-bd"><span class="card-tag">Buying Guide</span></p>
-<h3>ABSD Singapore: Complete Guide to Additional Buyer&#8217;s Stamp Duty</h3>
-<p>Everything you need to know about ABSD rates, remission eligibility, and how it affects your property buying decision in 2026.</p>
-<p class="t-light">8 min read</p>
-</div>
-<p></a><br />
-<a href="/solid-homes-alt-preview/cpf-condo-guide/" class="card"></p>
-<div class="card-bd"><span class="card-tag">CPF Guide</span></p>
-<h3>Using CPF to Buy a Condo: What You Need to Know</h3>
-<p>How CPF rules affect your property purchase, from the CPF Housing Withdrawal limits to accrued interest and repayment obligations.</p>
-<p class="t-light">6 min read</p>
-</div>
-<p></a><br />
-<a href="/solid-homes-alt-preview/hdb-to-private-upgrade/" class="card"></p>
-<div class="card-bd"><span class="card-tag">Upgrading</span></p>
-<h3>HDB to Condo Upgrade: The Strategic Guide</h3>
-<p>Is upgrading from HDB to private property right for you? A step-by-step guide covering finances, timing, and the decisions that matter.</p>
-<p class="t-light">5 min read</p>
-</div>
-<p></a>
-</div>
-<div class="txt-c mt-40"><a href="/solid-homes-alt-preview/property-guides/" class="btn btn-ghost">View All Guides</a></div>
-</div>
-</section>
-<p><!-- ═══ NEW LAUNCHES ═══ --></p>
-<section class="sec-warm">
-<div class="wrap txt-c">
-<p class="t-sm t-accent mb-16">Coming to Market</p>
-<div class="spacer-16"></div>
-<h2>New Launch Analysis</h2>
-<p class="t-mid mt-16" style="max-width:560px;margin-left:auto;margin-right:auto;">Reviews of Singapore&#8217;s newest residential projects. What&#8217;s worth your attention and why.</p>
-</div>
-<div class="wrap mt-40">
-<div class="g2">
-<a href="/solid-homes-alt-preview/pinetree-hill/" class="card"></p>
-<div class="card-bd"><span class="card-tag">New Launch</span></p>
-<h3>Pinetree Hill</h3>
-<p class="t-mid mb-16">D21 — Pine Grove — 99 Years — UOL &amp; SingLand — 520 units</p>
-<p>520 homes by UOL at Pine Grove. Thoughtful layouts from 1BR to 5BR penthouse. TOP Sep 2027.</p>
-</div>
-<p></a><br />
-<a href="/solid-homes-alt-preview/dunearn-house/" class="card"></p>
-<div class="card-bd"><span class="card-tag">New Launch</span></p>
-<h3>Dunearn House</h3>
-<p class="t-mid mb-16">D10 — Bukit Timah — 99 Years — 360 units</p>
-<p>Bukit Timah school belt. First Turf City masterplan launch. Low-density, family-focused development.</p>
-</div>
-<p></a>
-</div>
-<div class="txt-c mt-40"><a href="/solid-homes-alt-preview/new-launch-singapore/" class="btn btn-ghost">View All Projects</a></div>
-</div>
-</section>
-<p><!-- ═══ MARKET ═══ --></p>
-<section class="sec">
-<div class="wrap txt-c">
-<p class="t-sm t-accent mb-16">Market Intelligence</p>
-<div class="spacer-16"></div>
-<h2>Market Commentary</h2>
-<p class="t-mid mt-16" style="max-width:560px;margin-left:auto;margin-right:auto;">Timely insights on Singapore property market trends, policy changes, and what they mean for you.</p>
-</div>
-<div class="wrap mt-40">
-<div class="g3">
-<a href="/solid-homes-alt-preview/ura-gls-2h-2026-confirmed-list/" class="card"></p>
-<div class="card-bd"><span class="card-tag">Market Update</span></p>
-<h3>GLS 2H 2026: What the Land Sales Mean for Homebuyers</h3>
-<p>The Government Land Sales programme for the second half of 2026 has been announced. Here&#8217;s what it tells us about future supply and pricing.</p>
-<p class="t-light">Latest analysis</p>
-</div>
-<p></a><br />
-<a href="/solid-homes-alt-preview/cooling-measures-singapore/" class="card"></p>
-<div class="card-bd"><span class="card-tag">Policy</span></p>
-<h3>Cooling Measures: What&#8217;s Changed and How to Navigate It</h3>
-<p>A clear breakdown of the latest property cooling measures and practical strategies for buyers and investors.</p>
-<p class="t-light">Updated Jul 2026</p>
-</div>
-<p></a><br />
-<a href="/solid-homes-alt-preview/ocr-vs-ccr-singapore/" class="card"></p>
-<div class="card-bd"><span class="card-tag">Trends</span></p>
-<h3>OCR vs CCR: Where Should You Be Looking in 2026?</h3>
-<p>The gap between Outside Core Region and Core Central Region has narrowed. We look at which segment offers better value today.</p>
-<p class="t-light">Market analysis</p>
-</div>
-<p></a>
-</div>
-</div>
-</section>
-<p><!-- ═══ TESTIMONIALS ═══ --></p>
-<section class="sec-warm">
-<div class="wrap-sm txt-c">
-<p class="t-sm t-accent mb-24">What Clients Say</p>
-<h2>Real feedback from real clients</h2>
-</div>
-<div class="wrap mt-32" style="max-width:860px;">
-<div class="g2">
-<div class="tc">
-<div class="tq">&#8220;</div>
-<p class="tt">Emmeline helped us navigate our first condo purchase with clarity and patience. She explained ABSD, CPF rules and the buying process in a way that actually made sense. No pressure, just good advice.</p>
-<div class="ta">
-<div class="tav">AM</div>
-<div>
-<div class="tn">Alex &amp; Mei Ling</div>
-<div class="td">First-time buyers, East Coast</div>
-</div>
-</div>
-</div>
-<div class="tc">
-<div class="tq">&#8220;</div>
-<p class="tt">We were stuck deciding whether to upgrade from HDB to private. Emmeline ran the numbers and showed us that waiting another year made more financial sense. That honesty saved us over $100K in potential losses.</p>
-<div class="ta">
-<div class="tav">TF</div>
-<div>
-<div class="tn">The Tan Family</div>
-<div class="td">HDB to private upgrade, Bukit Timah</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<p><!-- ═══ AUTHOR ═══ --></p>
-<section class="sec" style="background:var(--white);">
-<div class="wrap-sm txt-c">
-<div class="ta" style="flex-direction:column;gap:16px;">
-<img decoding="async" src="/solid-homes-alt-preview/assets/img/2026-06-emmeline-koh-profile.webp" alt="Emmeline Koh" style="width:72px;height:72px;border-radius:50%;object-fit:cover;"></p>
-<div>
-<div style="font-family:var(--header);font-size:18px;color:var(--text-dark);">Emmeline Koh</div>
-<p class="t-mid mb-16">Property Strategist &middot; CEA Reg R045542G &middot; PropNex Realty</p>
-<p class="t-mid" style="max-width:560px;margin:0 auto 16px;line-height:1.7;">Every guide, analysis, and market update on this site is written by me personally. I don&#8217;t outsource content or use generic templates. You&#8217;re getting the same perspective my clients pay for — grounded in 15+ years of experience and backed by transaction data.</p>
-<div class="wrap-g gap-6" style="justify-content:center;">
-<span class="cred-chip">15+ Years</span><br />
-<span class="cred-chip">500+ Families Helped</span><br />
-<span class="cred-chip">$250M+ Transactions</span><br />
-<span class="cred-chip">CEA Registered</span>
-</div>
-<p><a href="/solid-homes-alt-preview/about-us/" class="t-sm t-accent mt-16" style="display:inline-block;text-decoration:underline;letter-spacing:0;text-transform:none;">Full bio and credentials &rarr;</a>
-</div>
-</div>
-</div>
-</section>
-<p><!-- ═══ CTA ═══ --></p>
-<div class="sec">
-<div class="wrap">
-<div class="cta-b">
-<p class="t-sm t-accent mb-16" style="color:var(--accent);">Let&#8217;s Talk</p>
-<h2 style="color:var(--white);">Not Sure Where to Start?</h2>
-<p class="t-mid mt-16 mb-32" style="color:rgba(255,255,255,0.55);max-width:480px;margin-left:auto;margin-right:auto;">Tell us what you&#8217;re looking for — we&#8217;ll point you to the right information.</p>
-<div class="wrap-g gap-12" style="justify-content:center;">
-<a href="/solid-homes-alt-preview/contact-us/?intent=buying" class="btn btn-gold">I&#8217;m buying &rarr;</a><br />
-<a href="/solid-homes-alt-preview/contact-us/?intent=upgrading" class="btn btn-ghost-w">I&#8217;m upgrading &rarr;</a><br />
-<a href="/solid-homes-alt-preview/contact-us/?intent=investing" class="btn btn-ghost-w">I&#8217;m investing &rarr;</a>
-</div>
-</div>
-</div>
-</div>
-<p>&#8220;\n\n&#8221;</p>
-<p></p>
-</div></div></section>
+<div id="services" class="pg pg--home"><section class="sec light room"><div class="sec-in"><div class="sh"><p class="lab rv">01</p><h2 class="dh rv"><span class="s">Property Decisions Are Too Important<br>to Leave to <em>Guesswork</em></span></h2></div><p class="lead rv">Guidance, market insights and strategic property advice for Singapore buyers, sellers and upgraders. No fluff. Just clarity.</p>
+<p class="rv"><a class="btn gold" href="https://wa.me/6582754135">Book a Strategy Consultation</a></p>
+<p class="rv"><a class="btn gold" href="/solid-homes-alt-preview/property-guides/">Explore Guides</a></p>
+<p class="rv"><a class="btn gold" href="/solid-homes-alt-preview/what-is-absd-singapore/">What is ABSD?</a></p>
+<p class="rv"><a class="btn gold" href="/solid-homes-alt-preview/cpf-condo-guide/">Can I use CPF?</a></p>
+<p class="rv"><a class="btn gold" href="/solid-homes-alt-preview/keep-hdb-buy-condo/">Keep HDB &amp; buy condo?</a></p>
+<p class="rv"><a class="btn gold" href="/solid-homes-alt-preview/how-much-to-buy-condo/">How much do I need?</a></p>
+<p class="rv"><a class="btn gold" href="/solid-homes-alt-preview/salary-needed-for-condo/">What salary do I need?</a></p></div></section>
+<section class="sec dark room"><div class="sec-in"><p class="rv">Singapore Property Strategist</p>
+<div class="cards "><div class="card rv"></div><div class="card rv"><h3>New Launches</h3><p>Latest projects &amp; pricing</p></div><div class="card rv"></div><div class="card rv"><h3>Market Reports</h3><p>GLS, cooling measures &amp; trends</p></div><div class="card rv"></div><div class="card rv"><h3>HDB Upgrading</h3><p>Step-by-step upgrade guide</p></div><div class="card rv"></div><div class="card rv"><h3>Investment</h3><p>Portfolio &amp; rental strategy</p></div></div>
+<div class="stats rv"><div class="st"><b>15 +</b><span>Years in Singapore Real Estate</span></div><div class="st"><b>500 +</b><span>Families Advised</span></div><div class="st"><b>$250 M+</b><span>Transaction Value Facilitated</span></div></div>
+<p class="rv">Your Adviser</p></div></section>
+<section class="sec light room"><div class="sec-in"><div class="sh"><p class="lab rv">02</p><h2 class="dh rv"><span class="s">Not Just a Property Agent.<br>A Property</span> <span class="o">Strategist.</span></h2></div><p class="rv">With over 15 years in Singapore real estate, I’ve helped hundreds of families make property decisions they didn’t regret — not just transactions that closed.</p>
+<p class="rv">My approach is built around three things: understanding your full financial picture, knowing the Singapore market deeply, and giving you honest advice — even when the honest answer is “not yet.”</p>
+<p class="rv">15+ Years <br> | <br> New Launches <br> | <br> Resale Condos <br> | <br> Asset Progression <br> | <br> HDB Upgrading</p>
+<p class="rv"><a class="btn gold" href="/solid-homes-alt-preview/about-us/">Learn More About Emmeline</a></p>
+<figure class="band par rv"><img src="/solid-homes-alt-preview/assets/img/2026-06-emmeline-koh-profile.webp" alt="Emmeline Koh" loading="lazy"></figure>
+<p class="rv">Singapore Property Intelligence</p></div></section>
+<section class="sec dark room"><div class="sec-in"><div class="sh"><p class="lab rv">03</p><h2 class="dh rv"><span class="s">Research. Compare.</span> <span class="o">Decide.</span></h2></div><p class="rv">Original analysis and practical tools to help you make confident property decisions.</p>
+<div class="cards "><div class="card rv"></div></div>
+<h4 class="h3 rv">New Launch Hub</h4>
+<p class="rv">Compare prices, layouts, locations, and developer track records across Singapore’s latest projects.</p>
+<p class="rv"><a class="btn gold" href="/solid-homes-alt-preview/new-launch-singapore/">Explore projects →</a></p>
+<div class="cards "><div class="card rv"></div></div>
+<h4 class="h3 rv">Market Reports</h4>
+<p class="rv">GLS analysis, cooling measures impact, district trends, and OCR vs CCR comparisons updated regularly.</p>
+<p class="rv"><a class="btn gold" href="/solid-homes-alt-preview/property-news/">Read analysis →</a></p>
+<div class="cards "><div class="card rv"></div></div>
+<h4 class="h3 rv">Upgrade Strategist</h4>
+<p class="rv">Step-by-step HDB-to-private guides with cost breakdowns, CPF rules, and timing strategies for upgraders.</p>
+<p class="rv"><a class="btn gold" href="/solid-homes-alt-preview/upgrade-property-singapore/">Plan your upgrade →</a></p>
+<div class="cards "><div class="card rv"></div></div>
+<h4 class="h3 rv">Buyer Guides</h4>
+<p class="rv">ABSD explained, school planning, MRT proximity analysis, and financing calculators for informed decisions.</p>
+<p class="rv"><a class="btn gold" href="/solid-homes-alt-preview/property-guides/">Browse guides →</a></p>
+<p class="rv">Read. Learn. Decide.</p></div></section>
+<section class="sec light room"><div class="sec-in"><div class="sh"><p class="lab rv">04</p><h2 class="dh rv"><span class="s">Property</span> <span class="o">Guides</span></h2></div><p class="rv">Curated guides written for Singapore homeowners, investors and upgraders. No jargon. No fluff. Just what you need to know.</p>
+<div class="cards "><div class="card rv"><span class="tag">Buying Guide</span><h3>ABSD Singapore: Complete Guide to Additional Buyer’s Stamp Duty</h3><p>Everything you need to know about ABSD rates, remission eligibility, and how it affects your property buying decision in 2026.</p><p>8 min read</p></div><div class="card rv"><span class="tag">CPF Guide</span><h3>Using CPF to Buy a Condo: What You Need to Know</h3><p>How CPF rules affect your property purchase, from the CPF Housing Withdrawal limits to accrued interest and repayment obligations.</p><p>6 min read</p></div><div class="card rv"><span class="tag">Upgrading</span><h3>HDB to Condo Upgrade: The Strategic Guide</h3><p>Is upgrading from HDB to private property right for you? A step-by-step guide covering finances, timing, and the decisions that matter.</p><p>5 min read</p></div></div>
+<p class="rv"><a class="btn gold" href="/solid-homes-alt-preview/property-guides/">View All Guides</a></p>
+<p class="rv">Coming to Market</p></div></section>
+<section class="sec dark room"><div class="sec-in"><div class="sh"><p class="lab rv">05</p><h2 class="dh rv"><span class="s">New Launch</span> <span class="o">Analysis</span></h2></div><p class="rv">Reviews of Singapore’s newest residential projects. What’s worth your attention and why.</p>
+<div class="cards "><div class="card rv"><span class="tag">New Launch</span><h3>Pinetree Hill</h3><p>D21 — Pine Grove — 99 Years — UOL &amp; SingLand — 520 units</p><p>520 homes by UOL at Pine Grove. Thoughtful layouts from 1BR to 5BR penthouse. TOP Sep 2027.</p></div><div class="card rv"><span class="tag">New Launch</span><h3>Dunearn House</h3><p>D10 — Bukit Timah — 99 Years — 360 units</p><p>Bukit Timah school belt. First Turf City masterplan launch. Low-density, family-focused development.</p></div></div>
+<p class="rv"><a class="btn gold" href="/solid-homes-alt-preview/new-launch-singapore/">View All Projects</a></p>
+<p class="rv">Market Intelligence</p></div></section>
+<section class="sec light room"><div class="sec-in"><div class="sh"><p class="lab rv">06</p><h2 class="dh rv"><span class="s">Market</span> <span class="o">Commentary</span></h2></div><p class="rv">Timely insights on Singapore property market trends, policy changes, and what they mean for you.</p>
+<div class="cards "><div class="card rv"><span class="tag">Market Update</span><h3>GLS 2H 2026: What the Land Sales Mean for Homebuyers</h3><p>The Government Land Sales programme for the second half of 2026 has been announced. Here’s what it tells us about future supply and pricing.</p><p>Latest analysis</p></div><div class="card rv"><span class="tag">Policy</span><h3>Cooling Measures: What’s Changed and How to Navigate It</h3><p>A clear breakdown of the latest property cooling measures and practical strategies for buyers and investors.</p><p>Updated Jul 2026</p></div><div class="card rv"><span class="tag">Trends</span><h3>OCR vs CCR: Where Should You Be Looking in 2026?</h3><p>The gap between Outside Core Region and Core Central Region has narrowed. We look at which segment offers better value today.</p><p>Market analysis</p></div></div>
+<p class="rv">What Clients Say</p></div></section>
+<section class="sec dark room"><div class="sec-in"><div class="sh"><p class="lab rv">07</p><h2 class="dh rv"><span class="s">Real feedback from real</span> <span class="o">clients</span></h2></div><p class="rv">“</p>
+<p class="rv">Emmeline helped us navigate our first condo purchase with clarity and patience. She explained ABSD, CPF rules and the buying process in a way that actually made sense. No pressure, just good advice.</p>
+<p class="rv">AM</p>
+<p class="rv">Alex &amp; Mei Ling</p>
+<p class="rv">First-time buyers, East Coast</p>
+<p class="rv">“</p>
+<p class="rv">We were stuck deciding whether to upgrade from HDB to private. Emmeline ran the numbers and showed us that waiting another year made more financial sense. That honesty saved us over $100K in potential losses.</p>
+<p class="rv">TF</p>
+<p class="rv">The Tan Family</p>
+<p class="rv">HDB to private upgrade, Bukit Timah</p>
+<figure class="band par rv"><img src="/solid-homes-alt-preview/assets/img/2026-06-emmeline-koh-profile.webp" alt="Emmeline Koh" loading="lazy"></figure>
+<p class="rv">Emmeline Koh</p>
+<p class="rv">Property Strategist · CEA Reg R045542G · PropNex Realty</p>
+<p class="rv">Every guide, analysis, and market update on this site is written by me personally. I don’t outsource content or use generic templates. You’re getting the same perspective my clients pay for — grounded in 15+ years of experience and backed by transaction data.</p>
+<p class="rv">15+ Years <br> 500+ Families Helped <br> $250M+ Transactions <br> CEA Registered</p>
+<p class="rv"><a href="/solid-homes-alt-preview/about-us/">Full bio and credentials →</a></p>
+<p class="rv">Let’s Talk</p></div></section>
+<section class="sec light room"><div class="sec-in"><div class="sh"><p class="lab rv">08</p><h2 class="dh rv"><span class="s">Not Sure Where to</span> <span class="o">Start?</span></h2></div><p class="rv">Tell us what you’re looking for — we’ll point you to the right information.</p>
+<p class="rv"><a class="btn gold" href="/solid-homes-alt-preview/contact-us/?intent=buying">I’m buying →</a></p>
+<p class="rv"><a class="btn gold" href="/solid-homes-alt-preview/contact-us/?intent=upgrading">I’m upgrading →</a></p>
+<p class="rv"><a class="btn gold" href="/solid-homes-alt-preview/contact-us/?intent=investing">I’m investing →</a></p>
+<p class="rv">“\n\n”</p></div></section></div>
 
 <section id="contact" class="contact">
   <div class="c-left"><img class="c-img" src="assets/img/pes-lawn-view.webp" alt="" loading="lazy" width="1600" height="900">
@@ -465,7 +149,7 @@ window.addEventListener('load',function(){setTimeout(apply,300);window.setTimeou
 <p class="k-disc"><strong>Disclaimer (DRAFT, pending Legal Officer review).</strong> The information on this website is provided for general information only and does not constitute financial, legal, tax or investment advice. While reasonable care has been taken, prices, availability, project details and policies may change and should be verified independently before making any decision. Artist's impressions and AI-generated images are for illustration only. This website is not the official website of any developer.</p>
 <p class="k-rights">ALL RIGHTS RESERVED. 2026. Crafted and Designed by BK Han.</p>
 <p class="k-prev">Design preview only. Not the live emmelinekoh.sg.</p></footer>
-<script src="/solid-homes-alt-preview/chrome.js" defer></script>
-<script src="app.js" defer></script>
+<script src="/solid-homes-alt-preview/chrome.js" defer></script><script src="/solid-homes-alt-preview/site.js" defer></script><script src="/solid-homes-alt-preview/app.js" defer></script><script src="/solid-homes-alt-preview/sound.js" defer></script>
+
 </body>
 </html>
