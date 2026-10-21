@@ -14,8 +14,8 @@ a{color:inherit}
 .btn.gold{background:var(--gd);color:var(--ch)}.btn.gold:hover{background:var(--iv);border-color:var(--iv)}
 .btn.ghost{color:var(--iv);border-color:#F7F7F555}.btn.ghost:hover{border-color:var(--gd);color:var(--gd)}
 /* hero */
-.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:110px clamp(20px,6vw,90px) 80px;overflow:hidden;background:radial-gradient(120% 80% at 70% 30%,#243447 0%,#1E1E1E 70%)}
-.sun{position:absolute;right:8vw;top:16vh;width:min(42vw,520px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 40% 35%,#E3CC97,#C8A96B 55%,#9c8150);opacity:.9;filter:saturate(.9);transform:translateY(calc(var(--s,0)*.25px))}
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:110px clamp(20px,6vw,90px) 80px;overflow:hidden;background:linear-gradient(90deg,#1E1E1Ef2 0%,#1E1E1Ec0 45%,#24344766 100%),var(--hero) center/cover no-repeat,#1E1E1E}
+.sun{position:absolute;right:8vw;top:16vh;width:min(42vw,520px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 40% 35%,#E3CC97,#C8A96B 55%,#9c8150);opacity:.55;mix-blend-mode:soft-light;filter:saturate(.9);transform:translateY(calc(var(--s,0)*.25px))}
 .layer{position:absolute;left:0;right:0;bottom:0;pointer-events:none}
 .l1{height:46vh;background:linear-gradient(180deg,transparent,#1E1E1E 90%),repeating-linear-gradient(90deg,#24344700 0 6vw,#2434475e 6vw 6.4vw);clip-path:polygon(0 40%,8% 40%,8% 15%,16% 15%,16% 35%,27% 35%,27% 5%,33% 5%,33% 30%,46% 30%,46% 20%,58% 20%,58% 0,64% 0,64% 25%,78% 25%,78% 10%,88% 10%,88% 35%,100% 35%,100% 100%,0 100%);background-color:#243447;opacity:.55;transform:translateY(calc(var(--s,0)*.12px))}
 .l2{height:28vh;background:linear-gradient(180deg,#1E1E1E00,#1E1E1E 70%),#151515;clip-path:polygon(0 50%,12% 50%,12% 20%,22% 20%,22% 45%,40% 45%,40% 10%,47% 10%,47% 40%,70% 40%,70% 25%,84% 25%,84% 55%,100% 55%,100% 100%,0 100%)}
@@ -33,7 +33,7 @@ a{color:inherit}
 .scene{position:absolute;inset:0;transform-style:preserve-3d;will-change:transform}
 .room{position:absolute;left:50%;top:50%;width:min(86vw,980px);height:min(64vh,560px);margin:calc(min(64vh,560px)/-2) 0 0 calc(min(86vw,980px)/-2);transform-style:preserve-3d;transform:translateZ(calc(var(--i)*-1400px))}
 .room::before,.room::after{content:"";position:absolute;inset:0;border:1px solid #C8A96B55}
-.room::before{background:linear-gradient(180deg,#243447 0%,#1E1E1E 100%);box-shadow:inset 0 0 0 1px #F7F7F510,0 40px 120px #000a}
+.room::before{background:linear-gradient(0deg,#1E1E1Ef0 0%,#1E1E1E66 45%,#24344722 100%),var(--img) center/cover !important;box-shadow:inset 0 0 0 1px #F7F7F510,0 40px 120px #000a}
 .room::after{inset:auto 0 -30% 0;height:30%;transform-origin:top;transform:rotateX(80deg);background:repeating-linear-gradient(90deg,#C8A96B22 0 1px,transparent 1px 80px),#191919;border:0}
 .room[data-i="1"]::before{background:radial-gradient(60% 70% at 70% 30%,#C8A96B33,transparent),linear-gradient(#2a3b50,#1E1E1E)}
 .room[data-i="2"]::before{background:repeating-linear-gradient(90deg,#F7F7F508 0 2px,transparent 2px 60px),linear-gradient(#1f2c3c,#1E1E1E)}
@@ -90,3 +90,15 @@ a{color:inherit}
 }
 @media (max-width:480px){.grid{grid-template-columns:1fr}.grid article{border-right:0;border-bottom:1px solid #1E1E1E14}.hero{align-items:flex-end;padding-bottom:110px}}
 @media (prefers-reduced-motion:reduce){.mega span{animation:none;opacity:1;transform:none}html{scroll-behavior:auto}}
+
+.film{background:#141414;padding:clamp(70px,10vw,130px) clamp(20px,6vw,90px)}
+.film-head .mega-sm{margin-bottom:32px}
+.film-frame{position:relative;aspect-ratio:16/9;overflow:hidden;border:1px solid #C8A96B55;background:#1E1E1E}
+.vid,.vid-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vid-poster{display:none}
+.film-cap{position:absolute;left:16px;bottom:12px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#F7F7F5bb;background:#1E1E1E99;padding:4px 10px}
+.grid article img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;margin-bottom:18px;filter:saturate(.85)}
+.about{background:linear-gradient(90deg,#243447f5 0%,#243447e0 55%,#24344766 100%),url(assets/img/infinity-lap-pool.webp) center/cover}
+.c-img{width:100%;aspect-ratio:16/10;object-fit:cover;margin-bottom:28px;border:1px solid #C8A96B44}
+.note{margin-top:18px}
+@media (prefers-reduced-motion:reduce){.vid{display:none}.vid-poster{display:block}}

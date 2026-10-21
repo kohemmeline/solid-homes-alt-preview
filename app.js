@@ -9,7 +9,7 @@ function frame(){tick=false;const y=scrollY;root.style.setProperty('--s',Math.mi
  const p=Math.min(Math.max(-r.top/len,0),1),z=p*(rooms.length-1)*D;
  scene.style.transform=reduce?'none':`translateZ(${z}px) rotateY(${innerWidth<820?0:Math.sin(p*Math.PI*3)*4}deg)`;
  rooms.forEach((el,i)=>{const d=z-i*D;el.style.opacity=reduce?(Math.round(p*3)===i?1:0):Math.max(0,Math.min(1,1-Math.abs(d)/D*1.1,(d+D*1.6)/D))});
- const idx=Math.min(rooms.length-1,Math.round(p*(rooms.length-1)));
+ const idx=Math.min(rooms.length-1,Math.floor(p*(rooms.length-1)+0.35));
  label.textContent=`0${idx+1} / ${names[idx]}`;bar.style.width=(p*100)+'%';}
 addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(frame)}},{passive:true});
 addEventListener('resize',frame);frame();
