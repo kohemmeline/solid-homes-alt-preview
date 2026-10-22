@@ -1,7 +1,7 @@
 (()=>{
 const root=document.documentElement,walk=document.getElementById('walk'),scene=document.getElementById('scene');
 const rooms=[...document.querySelectorAll('.room')],label=document.getElementById('hudLabel'),bar=document.getElementById('hudBar');
-const names=['Arrival','Living','Study','Balcony'],D=1400,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const names=['Your Finances','New Launches','Market Reports','Upgrade Plans'],D=1400,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 rooms.forEach(r=>r.style.setProperty('--i',r.dataset.i));
 let tick=false;
 function frame(){tick=false;const y=scrollY;root.style.setProperty('--s',Math.min(y,1200));
