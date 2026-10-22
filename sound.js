@@ -1,6 +1,6 @@
 (()=>{const btn=document.getElementById('snd');if(!btn)return;
 const zone=[document.querySelector('.film'),document.getElementById('walk')].filter(Boolean);
-const SRC='/solid-homes-alt-preview/assets/ambient-pad.m4a',VOL=0.32;let ctx,gain,src,on=false,loading=false,inZone=true;
+const SRC='/assets/ambient-pad.m4a',VOL=0.32;let ctx,gain,src,on=false,loading=false,inZone=true;
 function ramp(v,s){if(!gain)return;const t=ctx.currentTime;gain.gain.cancelScheduledValues(t);gain.gain.setValueAtTime(gain.gain.value,t);gain.gain.linearRampToValueAtTime(v,t+s)}
 function target(){return on&&inZone?VOL:(on?0.0001:0)}
 async function start(){if(loading)return;loading=true;ctx=new (window.AudioContext||window.webkitAudioContext)();gain=ctx.createGain();gain.gain.value=0;gain.connect(ctx.destination);

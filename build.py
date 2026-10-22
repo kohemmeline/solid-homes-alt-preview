@@ -4,7 +4,7 @@
 classes and inline styles are discarded."""
 import json,glob,re,os,html,hashlib,shutil
 from bs4 import BeautifulSoup,NavigableString,Comment,Tag
-CR='/workspace/crawl'; OUT='/workspace/alt-design-kasane'; BASE='/solid-homes-alt-preview'
+CR='/workspace/crawl'; OUT='/workspace/alt-design-kasane'; BASE=''
 P=[p for f in sorted(glob.glob(CR+'/pages[0-9].json')) for p in json.load(open(f))]
 POSTS=json.load(open(CR+'/posts.json'))
 E=html.escape
@@ -325,7 +325,7 @@ NAV=[('property-guides','Property Guides'),('new-launch-singapore','New Launches
 WA='https://wa.me/6582754135?text=Hi%20Emmeline%2C%20I%20found%20your%20website%20and%20would%20like%20a%20property%20consultation.'
 DISC='''<p class="k-disc"><strong>Disclaimer (DRAFT, pending Legal Officer review).</strong> The information on this website is provided for general information only and does not constitute financial, legal, tax or investment advice. While reasonable care has been taken, prices, availability, project details and policies may change and should be verified independently before making any decision. Artist's impressions and AI-generated images are for illustration only. This website is not the official website of any developer.</p>'''
 def head(title,extra=''):
-    return f'''<!doctype html><html lang="en-SG"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><title>{title}</title>
+    return f'''<!doctype html><html lang="en-SG"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{title}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{BASE}/chrome.css"><link rel="stylesheet" href="{BASE}/site.css">{extra}</head><body>'''
 def nav():
@@ -344,7 +344,7 @@ def foot():
 <p class="k-cea">Emmeline Koh · CEA Reg. No. R045542G · PropNex Realty Pte. Ltd. · <a href="tel:+6582754135">8275 4135</a> · <a href="mailto:solidhomesbyemmeline@gmail.com">solidhomesbyemmeline@gmail.com</a></p>
 {DISC}
 <p class="k-rights">ALL RIGHTS RESERVED. 2026. Crafted and Designed by BK Han.</p>
-<p class="k-prev">Design preview only. Not the live emmelinekoh.sg.</p></footer>
+</footer>
 <script src="{BASE}/chrome.js" defer></script><script src="{BASE}/site.js" defer></script>'''
 MAILFORM=f'''<form class="mform rv" action="mailto:solidhomesbyemmeline@gmail.com" method="post" enctype="text/plain" data-mailto>
 <label>Name<input name="name" required autocomplete="name"></label><label>Mobile<input name="mobile" type="tel" required autocomplete="tel"></label>
@@ -429,14 +429,14 @@ if __name__=='__main__':
         if os.path.exists(ov): p=dict(p,content={'rendered':open(ov).read()})
         kind,main=render(p,isPost)
         t=page_title(p['title']['rendered'])
-        doc=head(f'{E(t)} | Emmeline Koh (Design preview)')+nav()+f'<main class="pg pg--{kind}">{main}</main>'+foot()+'</body></html>'
+        doc=head(f'{E(t)} | Emmeline Koh')+nav()+f'<main class="pg pg--{kind}">{main}</main>'+foot()+'</body></html>'
         os.makedirs(f'{OUT}/{path}',exist_ok=True); open(f'{OUT}/{path}/index.html','w').write(doc)
         cov=coverage(p['content']['rendered'],main)
         report.append((path,kind,round(cov,3))); built.append((path,t,'post' if isPost else 'page'))
     lis=''.join(f'<a class="card rv" href="{BASE}/{pa}/"><span class="tag">Insights</span><h3>{E(t)}</h3><span class="arr" aria-hidden="true">→</span></a>' for pa,t,k in built if k=='post')
     hero={'eye':['All posts'],'title':'Insights','lead':[],'img':pool('insights'),'ctas':[]}
     os.makedirs(OUT+'/insights',exist_ok=True)
-    open(OUT+'/insights/index.html','w').write(head('Insights | Emmeline Koh (Design preview)')+nav()+'<main class="pg pg--hub">'+r_hero(hero,'insights','hub','Insights')+f'<section class="sec light"><div class="sec-in"><div class="cards">{lis}</div></div></section></main>'+foot()+'</body></html>')
+    open(OUT+'/insights/index.html','w').write(head('Insights | Emmeline Koh')+nav()+'<main class="pg pg--hub">'+r_hero(hero,'insights','hub','Insights')+f'<section class="sec light"><div class="sec-in"><div class="cards">{lis}</div></div></section></main>'+foot()+'</body></html>')
     # homepage: live home <main> content through the same section renderer
     raw=open(CR+'/home-live.html').read(); raw=raw[raw.find('<main'):raw.find('</main>')+7]
     hb=extract(raw); hh,hs=sections(hb)
