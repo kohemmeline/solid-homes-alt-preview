@@ -288,8 +288,8 @@ def r_blocks(bs,dark=False):
         elif t=='faqs': o.append('<div class="faq">'+''.join(f'<details class="rv"><summary>{f[1]}</summary><div>{r_blocks(f[2])}</div></details>' for f in b[1])+'</div>')
         elif t=='gallery':
             ims=b[1]
-            if len(ims)==1: o.append(f'<figure class="band par rv"><img src="{ims[0][1]}" alt="{E(ims[0][2])}" loading="lazy">'+(f'<figcaption>{ims[0][3]}</figcaption>' if ims[0][3] else '')+'</figure>')
-            else: o.append('<div class="gal rv">'+''.join(f'<figure><img src="{m[1]}" alt="{E(m[2])}" loading="lazy">'+(f'<figcaption>{m[3]}</figcaption>' if m[3] else '')+'</figure>' for m in ims)+'</div>')
+            if len(ims)==1: o.append(f'<figure class="band par rv"><img src="{ims[0][1]}" alt="{E(ims[0][2])}" loading="lazy">'+'</figure>'+'<p class="imgnote">All images are artist\'s impressions.</p>')
+            else: o.append('<div class="gal rv">'+''.join(f'<figure><img src="{m[1]}" alt="{E(m[2])}" loading="lazy">'+'</figure>' for m in ims)+'</div><p class="imgnote">All images are artist\'s impressions.</p>')
     return '\n'.join(o)
 def r_cards(cs):
     o=[]

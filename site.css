@@ -162,3 +162,4 @@ a.card:hover .arr{transform:translateX(6px)}a.card:hover .ci img{transform:scale
 @media (max-width:560px){.st{padding-right:12px}.kv div{flex-direction:column;gap:4px}.kv dd{text-align:left}.card{padding:24px 20px 52px}.card .ci{margin:-24px -20px 8px}.sec p{font-size:16px}.phero{padding-top:110px}}
 @media (prefers-reduced-motion:reduce){.rv,.room>.sec-in{opacity:1!important;transform:none!important;transition:none}.phero-in>*{animation:none;opacity:1;transform:none}.phero-bg,.band img{transform:none!important}.scroll-cue{display:none}}
 @media (max-width:560px){.tbl table{min-width:0;font-size:13.5px}.tbl th,.tbl td{padding:10px 6px}.tbl th{letter-spacing:.08em}}
+.imgnote{font-size:.72rem;color:rgba(128,128,128,.85);margin:.5rem 0 1.5rem;letter-spacing:.02em}
