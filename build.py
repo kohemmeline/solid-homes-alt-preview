@@ -419,6 +419,15 @@ from collections import Counter
 def coverage(orig,new):
     a=Counter(w.lower() for w in visible_words(orig)); b=Counter(w.lower() for w in re.findall(r"[A-Za-z0-9$%]+",BeautifulSoup(new,'html.parser').get_text(' ')))
     tot=sum(a.values()); return 1.0 if not tot else sum(min(v,b[k]) for k,v in a.items())/tot
+# Follow Emmeline section: compact, consistent social cards (replaces scraped markup)
+ARR='<svg class="fl-arr" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>'
+IC={'Instagram':'<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>',
+'TikTok':'<path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5M14 3c.5 2.5 2.5 4.5 5 4.5"/>',
+'LinkedIn':'<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7.5 10v7M7.5 7v.01M11.5 17v-7M11.5 13a2.5 2.5 0 0 1 5 0v4"/>'}
+L=[('Instagram','@emmelinekoh','https://www.instagram.com/emmelinekoh'),('TikTok','@emmelinekoh','https://www.tiktok.com/@emmelinekoh'),('LinkedIn','in/emmelinekoh','https://www.linkedin.com/in/emmelinekoh')]
+FOLLOW='<div class="follow rv">'+''.join(f'<a class="fl" href="{u}" target="_blank" rel="noopener me" aria-label="Emmeline Koh on {n} ({h}), opens in a new tab"><svg class="fl-ic" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">{IC[n]}</svg><span class="tag">{n}</span><span class="fl-h">{h}</span>{ARR}</a>' for n,h,u in L)+'</div>'
+PAT=re.compile(r'(<p class="rv">Follow Emmeline</p>\s*)(?:<div class="cards ?">(?:(?!</div>).)*</div>|<p class="rv">(?:(?!</p>).)*instagram(?:(?!</p>).)*</p>)',re.S|re.I)
+def fix_follow(h): return PAT.sub(lambda m:m.group(1)+FOLLOW,h)
 if __name__=='__main__':
     report=[];built=[]
     for p in P+POSTS:
@@ -429,7 +438,7 @@ if __name__=='__main__':
         if os.path.exists(ov): p=dict(p,content={'rendered':open(ov).read()})
         kind,main=render(p,isPost)
         t=page_title(p['title']['rendered'])
-        doc=head(f'{E(t)} | Emmeline Koh')+nav()+f'<main class="pg pg--{kind}">{main}</main>'+foot()+'</body></html>'
+        doc=head(f'{E(t)} | Emmeline Koh')+nav()+f'<main class="pg pg--{kind}">{fix_follow(main)}</main>'+foot()+'</body></html>'
         os.makedirs(f'{OUT}/{path}',exist_ok=True); open(f'{OUT}/{path}/index.html','w').write(doc)
         cov=coverage(p['content']['rendered'],main)
         report.append((path,kind,round(cov,3))); built.append((path,t,'post' if isPost else 'page'))
