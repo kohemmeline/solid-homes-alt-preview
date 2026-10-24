@@ -457,3 +457,4 @@ if __name__=='__main__':
     json.dump(report,open(CR+'/coverage.json','w')); json.dump(built,open(CR+'/pages-built.json','w'))
     from collections import Counter as C
     print(C(k for _,k,_ in report)); low=[r for r in report if r[2]<0.97]; print('low coverage',len(low)); print(sorted(low,key=lambda r:r[2])[:25])
+    import subprocess;subprocess.run(['python3',os.path.join(os.path.dirname(os.path.abspath(__file__)),'postprocess.py'),OUT],check=True)
