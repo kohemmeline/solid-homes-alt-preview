@@ -41,4 +41,7 @@ for f in files:
     # enquiry form source field
     if 'data-mailto' in s and 'name="found-via"' not in s:
         s=re.sub(r'(<form[^>]*data-mailto[^>]*>.*?)(<label class="chk">|<button)',lambda m:m.group(1)+SRC+m.group(2),s,count=1,flags=re.S)
+    # tagline removed at Emmeline's request (25 Oct 2026)
+    s=re.sub(r'(How I work)\s*[:\-–—]\s*Guide first[.,]?\s*Sell second\.?',r'\1',s,flags=re.I)
+    s=re.sub(r'\s*Guide first[.,]?\s*sell second\.?','',s,flags=re.I)
     if s!=o: open(f,'w').write(s)
