@@ -8,6 +8,18 @@ CR='/workspace/crawl'; OUT='/workspace/alt-design-kasane'; BASE=''
 P=[p for f in sorted(glob.glob(CR+'/pages[0-9].json')) for p in json.load(open(f))]
 POSTS=json.load(open(CR+'/posts.json'))
 E=html.escape
+# --- claims guard (approved 24 Oct 2026): no year/family counts; use "since 2004"
+def scrub_claims(s):
+    import re as _re
+    R=[(r'agent with (?:more than|over) 15 years of experience advising','agent in Singapore real estate since 2004, advising'),
+       (r'<span class="cred-chip">500\+ Families Helped</span>(?:<br\s*/?>)?\s*',''),
+       (r'15\+ Years','Since 2004'),
+       (r'(?:grounded in |through strategy, data and )15\+ years of experience',lambda m:m.group(0).replace('15+ years of experience','experience in Singapore real estate since 2004')),
+       (r'(?:more than|over) 15 years(?: of experience)?','experience in Singapore real estate since 2004'),
+       (r'[Hh]undreds of families','clients'),(r'500\+ (?:families|clients|homeowners)','clients')]
+    for a,b in R: s=_re.sub(a,b,s,flags=_re.I) if isinstance(b,str) else _re.sub(a,b,s)
+    return s
+
 def imgname(u): return re.sub(r'\.[a-zA-Z]+$','',re.sub(r'.*/uploads/','',u).replace('/','-'))+'.webp'
 UP=re.compile(r'(?i)(?:https?://(?:www\.)?emmelinekoh\.sg)?/wp-content/uploads/[^"\'\s)]+?\.(?:jpe?g|png|webp|gif)')
 def img_url(u):
@@ -341,7 +353,7 @@ def foot():
 {col('Guides',[('property-guides','Buying Property'),('upgrade-property-singapore','Upgrading'),('new-launch-singapore','New Launches'),('property-investment-singapore','Investment')])}
 {col('Explore',[('area-guides','Area Guides'),('school-guides','School Guides'),('mrt-guides','MRT Guides')])}
 {col('Connect',[('about-us','About Emmeline'),('contact-us','Contact'),('privacy-policy','Privacy Policy')])}</div>
-<p class="k-cea">Emmeline Koh · CEA Reg. No. R045542G · PropNex Realty Pte. Ltd. · <a href="tel:+6582754135">8275 4135</a> · <a href="mailto:solidhomesbyemmeline@gmail.com">solidhomesbyemmeline@gmail.com</a></p>
+<p class="k-cea">Emmeline Koh, CEA R045542G, PropNex Realty Pte. Ltd. (L3008022J) · <a href="tel:+6582754135">8275 4135</a> · <a href="mailto:solidhomesbyemmeline@gmail.com">solidhomesbyemmeline@gmail.com</a></p>
 {DISC}
 <p class="k-rights">ALL RIGHTS RESERVED. 2026. Crafted and Designed by BK Han.</p>
 </footer>
@@ -439,20 +451,20 @@ if __name__=='__main__':
         kind,main=render(p,isPost)
         t=page_title(p['title']['rendered'])
         doc=head(f'{E(t)} | Emmeline Koh')+nav()+f'<main class="pg pg--{kind}">{fix_follow(main)}</main>'+foot()+'</body></html>'
-        os.makedirs(f'{OUT}/{path}',exist_ok=True); open(f'{OUT}/{path}/index.html','w').write(doc)
+        os.makedirs(f'{OUT}/{path}',exist_ok=True); open(f'{OUT}/{path}/index.html','w').write(scrub_claims(doc))
         cov=coverage(p['content']['rendered'],main)
         report.append((path,kind,round(cov,3))); built.append((path,t,'post' if isPost else 'page'))
     lis=''.join(f'<a class="card rv" href="{BASE}/{pa}/"><span class="tag">Insights</span><h3>{E(t)}</h3><span class="arr" aria-hidden="true">→</span></a>' for pa,t,k in built if k=='post')
     hero={'eye':['All posts'],'title':'Insights','lead':[],'img':pool('insights'),'ctas':[]}
     os.makedirs(OUT+'/insights',exist_ok=True)
-    open(OUT+'/insights/index.html','w').write(head('Insights | Emmeline Koh')+nav()+'<main class="pg pg--hub">'+r_hero(hero,'insights','hub','Insights')+f'<section class="sec light"><div class="sec-in"><div class="cards">{lis}</div></div></section></main>'+foot()+'</body></html>')
+    open(OUT+'/insights/index.html','w').write(scrub_claims(head('Insights | Emmeline Koh')+nav()+'<main class="pg pg--hub">'+r_hero(hero,'insights','hub','Insights')+f'<section class="sec light"><div class="sec-in"><div class="cards">{lis}</div></div></section></main>'+foot()+'</body></html>'))
     # homepage: live home <main> content through the same section renderer
     raw=open(CR+'/home-live.html').read(); raw=raw[raw.find('<main'):raw.find('</main>')+7]
     hb=extract(raw); hh,hs=sections(hb)
     first={'title':hh['title'],'eye':hh['eye'],'blocks':group([('lead',l) for l in hh['lead']]+list(hh['ctas']))}
     homesecs=r_sections([first]+hs,'home')
     tpl=open(OUT+'/index.tpl.html').read()
-    open(OUT+'/index.html','w').write(tpl.replace('<!--NAV-->',nav()).replace('<!--FOOT-->',foot()).replace('<!--HOMEMAIN-->',homesecs))
+    open(OUT+'/index.html','w').write(scrub_claims(tpl.replace('<!--NAV-->',nav()).replace('<!--FOOT-->',foot()).replace('<!--HOMEMAIN-->',homesecs)))
     report.append(('',"home",round(coverage(raw,homesecs),3)))
     json.dump(report,open(CR+'/coverage.json','w')); json.dump(built,open(CR+'/pages-built.json','w'))
     from collections import Counter as C
