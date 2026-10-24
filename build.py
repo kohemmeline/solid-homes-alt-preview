@@ -337,7 +337,7 @@ def nav():
 <div class="k-menu" id="kMenu" hidden><nav aria-label="Mobile navigation">{l}<a href="{WA}" target="_blank" rel="noopener" class="k-menu-cta">Book a Consultation</a><a href="tel:+6582754135">Call 8275 4135</a></nav></div>'''
 def foot():
     col=lambda h,items:f'<div><p class="k-fh">{h}</p><ul>'+''.join(f'<li><a href="{BASE}/{s}/">{t}</a></li>' for s,t in items)+'</ul></div>'
-    return f'''<footer class="k-foot"><div class="k-fgrid"><div><img src="{BASE}/assets/logo-on-dark.svg" alt="Solid Homes" width="180" height="41"><p class="k-fdesc">Helping Singapore homeowners, investors and upgraders make smarter property decisions through strategy, data and 15+ years of experience.</p></div>
+    return f'''<footer class="k-foot"><div class="k-fgrid"><div><img src="{BASE}/assets/logo-on-dark.svg" alt="Solid Homes" width="180" height="41"><p class="k-fdesc">Helping Singapore homeowners, investors and upgraders make smarter property decisions through strategy, data and experience in Singapore real estate since 2004.</p></div>
 {col('Guides',[('property-guides','Buying Property'),('upgrade-property-singapore','Upgrading'),('new-launch-singapore','New Launches'),('property-investment-singapore','Investment')])}
 {col('Explore',[('area-guides','Area Guides'),('school-guides','School Guides'),('mrt-guides','MRT Guides')])}
 {col('Connect',[('about-us','About Emmeline'),('contact-us','Contact'),('privacy-policy','Privacy Policy')])}</div>
