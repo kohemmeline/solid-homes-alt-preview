@@ -40,5 +40,5 @@ for f in files:
     s=re.sub(r'href="(https://wa\.me/6582754135[^"]*)"',lambda m:'href="%s"'%(m.group(1) if 'utm_source=' in m.group(1) else m.group(1)+('&amp;' if '?' in m.group(1) else '?')+'utm_source='+slug),s)
     # enquiry form source field
     if 'data-mailto' in s and 'name="found-via"' not in s:
-        s=re.sub(r'(<form[^>]*data-mailto[^>]*>.*?)(<label class="chk">|<button)',lambda m:m.group(1)+SRC+m.group(2),s,flags=re.S)
+        s=re.sub(r'(<form[^>]*data-mailto[^>]*>.*?)(<label class="chk">|<button)',lambda m:m.group(1)+SRC+m.group(2),s,count=1,flags=re.S)
     if s!=o: open(f,'w').write(s)
