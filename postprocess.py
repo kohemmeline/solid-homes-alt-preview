@@ -44,4 +44,6 @@ for f in files:
     # tagline removed at Emmeline's request (25 Oct 2026)
     s=re.sub(r'(How I work)\s*[:\-–—]\s*Guide first[.,]?\s*Sell second\.?',r'\1',s,flags=re.I)
     s=re.sub(r'\s*Guide first[.,]?\s*sell second\.?','',s,flags=re.I)
+    # 'not the official website' wording removed at Emmeline's request (25 Oct 2026)
+    for _p in [r"\s*This website is not the official website of any developer\.",r"\s*(?:It|This)(?: website| page| site)? is not (?:the|a|any) (?:developer(?:’|'|&#8217;)s )?official (?:website|site)(?: of [^.<]*)?\.?",r"\s*Not the developer(?:’|'|&#8217;)s (?:official )?(?:website|site)\."]: s=re.sub(_p,'',s)
     if s!=o: open(f,'w').write(s)
