@@ -1,0 +1,12 @@
+.phero--plain{min-height:auto;padding-bottom:clamp(40px,6vw,80px)}
+.reg fieldset{border:0;padding:0;margin:0;display:grid;gap:8px}
+.reg legend{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.9;margin-bottom:6px;padding:0}
+.reg .opts{display:flex;flex-wrap:wrap;gap:8px 18px}
+.reg .opts label{display:flex;gap:8px;align-items:center;text-transform:none;letter-spacing:0;font-size:14px}
+.reg .plist{max-height:220px;overflow:auto;border-bottom:1px solid #8889;padding-bottom:8px}
+.reg .hp{position:absolute;left:-9999px}
+.reg-msg{font-size:15px;margin:0}
+.reg-msg[data-ok]{color:var(--gd)}
+.upd{border-left:3px solid var(--gd);padding:14px 18px;margin:0 0 24px}
+.srcs{font-size:13px;opacity:.85}.srcs a{word-break:break-word}
+.lstat{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gd)}

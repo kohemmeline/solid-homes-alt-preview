@@ -53,6 +53,7 @@ CALC_NOTE='<p class="ekc-note">Estimates only, not financing advice. Bank and HD
 SGT_JS='new Date(Date.now()+288e5).toISOString().slice(0,19)+"+08:00"'
 def _form(m):
     f=m.group(0)
+    if 'data-reg' in f: return f  # early-registration forms carry their own project-specific PDPA consent (launches.py)
     # standard forms: required consent label
     f=re.sub(r'<label class="chk"><input type="checkbox"(?![^>]*marketing_consent)[^>]*>.*?</label>',
              '<label class="chk"><input type="checkbox" name="pdpa_consent" value="yes" required> <span>'+REQ_TXT+'</span></label>',f,flags=re.S)

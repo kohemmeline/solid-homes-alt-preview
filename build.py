@@ -326,7 +326,7 @@ def r_sections(secs,kind):
         o.append(f'<section class="sec {"dark" if dark else "light"} room"><div class="sec-in">{head}{r_blocks(s["blocks"],dark)}</div></section>')
     return '\n'.join(o)
 # ---------- chrome ----------
-NAV=[('property-guides','Property Guides'),('new-launch-singapore','New Launches'),('affordability-calculator','Affordability Calculator'),('about-us','About'),('contact-us','Contact')]
+NAV=[('property-guides','Property Guides'),('new-launch-singapore','New Launches'),('upcoming-launches','Upcoming Launches'),('affordability-calculator','Affordability Calculator'),('about-us','About'),('contact-us','Contact')]
 WA='https://wa.me/6582754135?text=Hi%20Emmeline%2C%20I%20found%20your%20website%20and%20would%20like%20a%20property%20consultation.'
 DISC='''<p class="k-disc"><strong>Disclaimer:</strong> The information on this website is provided for general information only and does not constitute financial, legal, tax or investment advice. While reasonable care has been taken, prices, availability, project details and policies may change and should be verified independently before making any decision. Artist's impressions and AI-generated images are for illustration only.</p>'''
 def head(title,extra=''):
@@ -462,4 +462,5 @@ if __name__=='__main__':
     json.dump(report,open(CR+'/coverage.json','w')); json.dump(built,open(CR+'/pages-built.json','w'))
     from collections import Counter as C
     print(C(k for _,k,_ in report)); low=[r for r in report if r[2]<0.97]; print('low coverage',len(low)); print(sorted(low,key=lambda r:r[2])[:25])
-    import subprocess;subprocess.run(['python3',os.path.join(os.path.dirname(os.path.abspath(__file__)),'postprocess.py'),OUT],check=True)
+    import subprocess;subprocess.run(['python3',os.path.join(os.path.dirname(os.path.abspath(__file__)),'launches.py')],check=True)
+    subprocess.run(['python3',os.path.join(os.path.dirname(os.path.abspath(__file__)),'postprocess.py'),OUT],check=True)

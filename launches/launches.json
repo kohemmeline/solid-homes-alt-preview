@@ -1,0 +1,830 @@
+{
+ "new": [
+  {
+   "slug": "wynwood-grand-ec",
+   "name": "Wynwood Grand",
+   "kind": "EC",
+   "group": "named",
+   "status": "Preview & e-application 11–27 Dec 2026",
+   "preview": "11 Dec 2026",
+   "sort": "2026-12-11",
+   "location": "Woodlands Drive 17 (District 25)",
+   "developer": "CDL Divine (City Developments)",
+   "bid": "S$360.9m",
+   "psf": "S$782",
+   "units": "430",
+   "tenure": "99-year leasehold from 20 Aug 2025",
+   "mrt": "Woodlands South MRT (TE3), about a 5-minute walk (reported)",
+   "award": "2025 (lease from 20 Aug 2025)",
+   "extra": [
+    "Booking day reported as 16 Jan 2027."
+   ],
+   "src": [
+    [
+     "New Launch Radar project list",
+     "https://newlaunchradar.sg/projects"
+    ],
+    [
+     "HDBEC.sg upcoming EC list",
+     "https://www.hdbec.sg/upcoming-ec/"
+    ],
+    [
+     "PropKaki GLS tender results table (updated 25 Sep 2026)",
+     "https://www.propkaki.com/singapore-property-research/gls-sites-and-tender-results"
+    ]
+   ]
+  },
+  {
+   "slug": "solano-grand-ec",
+   "name": "Solano Grand",
+   "kind": "EC",
+   "group": "named",
+   "status": "Preview & e-application 8–19 Jan 2027",
+   "preview": "8 Jan 2027",
+   "sort": "2027-01-08",
+   "location": "Senja Close, Bukit Panjang (District 23)",
+   "developer": "CDL Constellation (City Developments)",
+   "bid": "S$252.9m",
+   "psf": "S$771",
+   "units": "About 300",
+   "tenure": "99-year leasehold",
+   "mrt": "Bukit Panjang MRT (DT1) about 1.0 km straight-line; Senja LRT nearer (approx., OneMap)",
+   "extra": [
+    "Booking day reported as 13 Feb 2027."
+   ],
+   "src": [
+    [
+     "New Launch Radar project list",
+     "https://newlaunchradar.sg/projects"
+    ],
+    [
+     "HDBEC.sg upcoming EC list",
+     "https://www.hdbec.sg/upcoming-ec/"
+    ],
+    [
+     "PropKaki GLS tender results table (updated 25 Sep 2026)",
+     "https://www.propkaki.com/singapore-property-research/gls-sites-and-tender-results"
+    ]
+   ]
+  },
+  {
+   "slug": "chencharu-central-residences",
+   "name": "Chencharu Central Residences",
+   "kind": "Condo",
+   "group": "named",
+   "status": "Target preview 16 Jan 2027 (reported)",
+   "preview": "16 Jan 2027",
+   "sort": "2027-01-16",
+   "location": "Chencharu Close, Yishun (District 27)",
+   "developer": "Evia, MCS Thomson, Gamuda and H108 consortium",
+   "bid": "S$1.01bn",
+   "psf": "S$980",
+   "units": "About 875",
+   "tenure": "99-year leasehold",
+   "mrt": "Khatib MRT (NS14), about 500 m straight-line (approx., OneMap)",
+   "award": "26 Sep 2025",
+   "extra": [
+    "Mixed-use site with an integrated bus interchange.",
+    "Target booking day reported as 30 Jan 2027."
+   ],
+   "src": [
+    [
+     "New Launch Radar project list",
+     "https://newlaunchradar.sg/projects"
+    ],
+    [
+     "PropertyInsider.sg, Chencharu Central Residences",
+     "https://www.propertyinsider.sg/new-launches/chencharu-close-gls/"
+    ],
+    [
+     "PropKaki GLS tender results table (updated 25 Sep 2026)",
+     "https://www.propkaki.com/singapore-property-research/gls-sites-and-tender-results"
+    ]
+   ]
+  },
+  {
+   "slug": "lentor-central-gls",
+   "name": "Lentor Central (reported as Lentor Signature)",
+   "kind": "Condo",
+   "group": "named",
+   "status": "Target preview 13 Feb 2027 (reported)",
+   "preview": "13 Feb 2027",
+   "sort": "2027-02-13",
+   "location": "Lentor Central (District 26)",
+   "developer": "GuocoLand, Intrepid Investments and TID Residential",
+   "bid": "S$657.1m",
+   "psf": "S$1,278",
+   "units": "About 560 (553 reported for the project)",
+   "tenure": "99-year leasehold",
+   "mrt": "Lentor MRT (TE5), about 200 m straight-line (approx., OneMap)",
+   "award": "6 Mar 2026",
+   "extra": [
+    "The project name and the link between this land site and the reported 553-unit Lentor Signature are not yet confirmed by the developer."
+   ],
+   "src": [
+    [
+     "New Launch Radar project list",
+     "https://newlaunchradar.sg/projects"
+    ],
+    [
+     "PropKaki GLS tender results table (updated 25 Sep 2026)",
+     "https://www.propkaki.com/singapore-property-research/gls-sites-and-tender-results"
+    ]
+   ]
+  },
+  {
+   "slug": "upper-thomson-road-parcel-a",
+   "name": "Upper Thomson Road (Parcel A)",
+   "kind": "Condo",
+   "group": "named",
+   "status": "Launch expected Q4 2026 – Q2 2027 (reported)",
+   "preview": "TBC",
+   "sort": "2027-03-01",
+   "location": "Upper Thomson Road (Parcel A)",
+   "developer": "Wee Hur and GSC consortium",
+   "bid": "S$613.9m",
+   "psf": "S$1,062",
+   "units": "About 595",
+   "tenure": "99-year leasehold",
+   "mrt": "TBC",
+   "award": "31 Oct 2025",
+   "extra": [
+    "Reported project name: Upper Thomson Residences (unconfirmed)."
+   ],
+   "src": [
+    [
+     "PropKaki GLS tender results table (updated 25 Sep 2026)",
+     "https://www.propkaki.com/singapore-property-research/gls-sites-and-tender-results"
+    ],
+    [
+     "New Launch Radar project list",
+     "https://newlaunchradar.sg/projects"
+    ]
+   ]
+  },
+  {
+   "slug": "sembawang-road-ec",
+   "name": "Sembawang Road EC",
+   "kind": "EC",
+   "group": "named",
+   "status": "Target launch Feb 2027 (reported)",
+   "preview": "Feb 2027",
+   "sort": "2027-02-20",
+   "location": "Sembawang Road",
+   "developer": "Oriental Pacific",
+   "bid": "S$197.8m",
+   "psf": "S$692",
+   "units": "About 265",
+   "tenure": "99-year leasehold",
+   "mrt": "TBC",
+   "src": [
+    [
+     "PropKaki GLS tender results table (updated 25 Sep 2026)",
+     "https://www.propkaki.com/singapore-property-research/gls-sites-and-tender-results"
+    ],
+    [
+     "HDBEC.sg upcoming EC list",
+     "https://www.hdbec.sg/upcoming-ec/"
+    ]
+   ]
+  },
+  {
+   "slug": "clovelle-woodlands-ec",
+   "name": "Woodlands Drive 17 EC (reported as Clovelle of Woodlands)",
+   "kind": "EC",
+   "group": "named",
+   "status": "Launch expected Q2 2027 (reported)",
+   "preview": "Q2 2027",
+   "sort": "2027-05-01",
+   "location": "Woodlands Drive 17",
+   "developer": "Sim Lian",
+   "bid": "S$484.0m",
+   "psf": "S$794",
+   "units": "About 560–570",
+   "tenure": "99-year leasehold",
+   "mrt": "Woodlands South MRT (TE3) area (approx., OneMap)",
+   "award": "20 Jan 2026",
+   "extra": [
+    "Project name reported, not yet confirmed by the developer."
+   ],
+   "src": [
+    [
+     "PropKaki GLS tender results table (updated 25 Sep 2026)",
+     "https://www.propkaki.com/singapore-property-research/gls-sites-and-tender-results"
+    ],
+    [
+     "HDBEC.sg upcoming EC list",
+     "https://www.hdbec.sg/upcoming-ec/"
+    ]
+   ]
+  },
+  {
+   "slug": "telok-blangah-road-gls",
+   "name": "Telok Blangah Road",
+   "kind": "Condo",
+   "group": "gls",
+   "status": "Land awarded – launch expected Q1 2027 (reported)",
+   "preview": "Q1 2027",
+   "sort": "2027-02-01",
+   "location": "Telok Blangah Road",
+   "developer": "Kingsford Huray",
+   "bid": "S$918.3m",
+   "psf": "S$1,326",
+   "units": "About 745",
+   "tenure": "99-year leasehold",
+   "mrt": "TBC",
+   "award": "20 Nov 2025",
+   "src": [
+    [
+     "PropKaki GLS tender results table (updated 25 Sep 2026)",
+     "https://www.propkaki.com/singapore-property-research/gls-sites-and-tender-results"
+    ]
+   ]
+  },
+  {
+   "slug": "bukit-timah-road-gls",
+   "name": "Bukit Timah Road",
+   "kind": "Condo",
+   "group": "gls",
+   "status": "Land awarded – launch expected Q1 2027 (reported)",
+   "preview": "Q1 2027",
+   "sort": "2027-02-02",
+   "location": "Bukit Timah Road",
+   "developer": "HH Investment",
+   "bid": "S$566.3m",
+   "psf": "S$1,820",
+   "units": "About 340",
+   "tenure": "99-year leasehold",
+   "mrt": "TBC",
+   "award": "21 Nov 2025",
+   "src": [
+    [
+     "PropKaki GLS tender results table (updated 25 Sep 2026)",
+     "https://www.propkaki.com/singapore-property-research/gls-sites-and-tender-results"
+    ]
+   ]
+  },
+  {
+   "slug": "bedok-rise-gls",
+   "name": "Bedok Rise",
+   "kind": "Condo",
+   "group": "gls",
+   "status": "Land awarded – launch date TBC",
+   "preview": "TBC",
+   "sort": "2027-06-01",
+   "location": "Bedok Rise",
+   "developer": "Bellis Residential",
+   "bid": "S$464.8m",
+   "psf": "S$1,330",
+   "units": "About 380",
+   "tenure": "99-year leasehold",
+   "mrt": "Tanah Merah MRT (EW4), about 250 m straight-line (approx., OneMap)",
+   "award": "2 Dec 2025",
+   "src": [
+    [
+     "PropKaki GLS tender results table (updated 25 Sep 2026)",
+     "https://www.propkaki.com/singapore-property-research/gls-sites-and-tender-results"
+    ]
+   ]
+  },
+  {
+   "slug": "dairy-farm-walk-gls",
+   "name": "Dairy Farm Walk",
+   "kind": "Condo",
+   "group": "gls",
+   "status": "Land awarded – launch date TBC",
+   "preview": "TBC",
+   "sort": "2027-06-02",
+   "location": "Dairy Farm Walk",
+   "developer": "ABR, LWH, Macly and RP Ventures consortium",
+   "bid": "S$427.0m",
+   "psf": "S$962",
+   "units": "About 480",
+   "tenure": "99-year leasehold",
+   "mrt": "Hillview MRT (DT3), about 850 m straight-line (approx., OneMap)",
+   "award": "28 Jan 2026",
+   "src": [
+    [
+     "PropKaki GLS tender results table (updated 25 Sep 2026)",
+     "https://www.propkaki.com/singapore-property-research/gls-sites-and-tender-results"
+    ]
+   ]
+  },
+  {
+   "slug": "tanjong-rhu-road-gls",
+   "name": "Tanjong Rhu Road",
+   "kind": "Condo",
+   "group": "gls",
+   "status": "Land awarded – launch date TBC",
+   "preview": "TBC",
+   "sort": "2027-06-03",
+   "location": "Tanjong Rhu Road",
+   "developer": "CDL Constellation and Bedrock",
+   "bid": "S$709.3m",
+   "psf": "S$1,455",
+   "units": "About 525",
+   "tenure": "99-year leasehold",
+   "mrt": "Tanjong Rhu MRT (TE23), about 350 m straight-line (approx., OneMap)",
+   "award": "10 Feb 2026",
+   "extra": [
+    "Different site from Tanjong Rhu Close."
+   ],
+   "src": [
+    [
+     "PropKaki GLS tender results table (updated 25 Sep 2026)",
+     "https://www.propkaki.com/singapore-property-research/gls-sites-and-tender-results"
+    ]
+   ]
+  },
+  {
+   "slug": "dover-drive-gls",
+   "name": "Dover Drive",
+   "kind": "Condo",
+   "group": "gls",
+   "status": "Land awarded – launch date TBC",
+   "preview": "TBC",
+   "sort": "2027-06-04",
+   "location": "Dover Drive",
+   "developer": "CNQC Realty (Prime), Forsea and Jianan consortium",
+   "bid": "S$951.0m",
+   "psf": "S$1,556",
+   "units": "About 625",
+   "tenure": "99-year leasehold",
+   "mrt": "TBC",
+   "award": "31 Mar 2026",
+   "src": [
+    [
+     "PropKaki GLS tender results table (updated 25 Sep 2026)",
+     "https://www.propkaki.com/singapore-property-research/gls-sites-and-tender-results"
+    ],
+    [
+     "URA, Current URA GLS sites",
+     "https://www.ura.gov.sg/land-sales/current-ura-gls-sites/"
+    ]
+   ]
+  },
+  {
+   "slug": "kallang-close-gls",
+   "name": "Kallang Close",
+   "kind": "Condo",
+   "group": "gls",
+   "status": "Land awarded – launch expected Q2 2027 (reported)",
+   "preview": "Q2 2027",
+   "sort": "2027-05-02",
+   "location": "Kallang Close",
+   "developer": "Frasers Property Phoenix and MJR",
+   "bid": "S$610.8m",
+   "psf": "S$1,415",
+   "units": "About 470",
+   "tenure": "99-year leasehold",
+   "mrt": "Kallang MRT (EW10), exit B about 405 m (reported)",
+   "award": "10 Apr 2026",
+   "src": [
+    [
+     "PropKaki GLS tender results table (updated 25 Sep 2026)",
+     "https://www.propkaki.com/singapore-property-research/gls-sites-and-tender-results"
+    ]
+   ]
+  },
+  {
+   "slug": "miltonia-close-ec",
+   "name": "Miltonia Close EC",
+   "kind": "EC",
+   "group": "gls",
+   "status": "Land awarded – launch expected Q3 2027 (reported)",
+   "preview": "Q3 2027",
+   "sort": "2027-08-01",
+   "location": "Miltonia Close, Yishun",
+   "developer": "Hoi Hup",
+   "bid": "S$340.9m",
+   "psf": "S$732",
+   "units": "About 430",
+   "tenure": "99-year leasehold",
+   "mrt": "TBC",
+   "award": "21 Apr 2026",
+   "src": [
+    [
+     "PropKaki GLS tender results table (updated 25 Sep 2026)",
+     "https://www.propkaki.com/singapore-property-research/gls-sites-and-tender-results"
+    ],
+    [
+     "HDBEC.sg upcoming EC list",
+     "https://www.hdbec.sg/upcoming-ec/"
+    ]
+   ]
+  },
+  {
+   "slug": "dunearn-road-gls",
+   "name": "Dunearn Road",
+   "kind": "Condo",
+   "group": "gls",
+   "status": "Land awarded – launch date TBC",
+   "preview": "TBC",
+   "sort": "2027-06-05",
+   "location": "Dunearn Road",
+   "developer": "Winrich and Metrobilt",
+   "bid": "S$533.0m",
+   "psf": "S$1,625",
+   "units": "About 330",
+   "tenure": "99-year leasehold",
+   "mrt": "TBC",
+   "award": "4 May 2026",
+   "src": [
+    [
+     "PropKaki GLS tender results table (updated 25 Sep 2026)",
+     "https://www.propkaki.com/singapore-property-research/gls-sites-and-tender-results"
+    ]
+   ]
+  },
+  {
+   "slug": "holland-plain-sim-lian-gls",
+   "name": "Holland Plain (Sim Lian parcel)",
+   "kind": "Condo",
+   "group": "gls",
+   "status": "Land awarded – launch expected Q2 2027 (reported)",
+   "preview": "Q2 2027",
+   "sort": "2027-05-03",
+   "location": "Holland Plain",
+   "developer": "Sim Lian",
+   "bid": "S$454.0m",
+   "psf": "S$1,491",
+   "units": "About 280",
+   "tenure": "99-year leasehold",
+   "mrt": "King Albert Park MRT (DT6), about 950 m straight-line (approx., OneMap)",
+   "award": "12 May 2026",
+   "extra": [
+    "This is the smaller Holland Plain parcel. The larger (about 610-unit) Holland Plain site has its own page."
+   ],
+   "src": [
+    [
+     "PropKaki GLS tender results table (updated 25 Sep 2026)",
+     "https://www.propkaki.com/singapore-property-research/gls-sites-and-tender-results"
+    ]
+   ]
+  },
+  {
+   "slug": "peck-hay-road-gls",
+   "name": "Peck Hay Road",
+   "kind": "Condo",
+   "group": "gls",
+   "status": "Land awarded – launch expected Q3 2027 (reported)",
+   "preview": "Q3 2027",
+   "sort": "2027-08-02",
+   "location": "Peck Hay Road (Newton / Orchard)",
+   "developer": "CDL Constellation and Garden Estates (CDL / Hong Leong)",
+   "bid": "S$542.4m",
+   "psf": "S$1,865",
+   "units": "About 315",
+   "tenure": "99-year leasehold",
+   "mrt": "Newton MRT (DT11 / NS21), about 550 m straight-line (approx., OneMap)",
+   "award": "16 Jun 2026",
+   "extra": [
+    "Site area 5,513.5 sq m; maximum GFA 27,017 sq m (URA)."
+   ],
+   "src": [
+    [
+     "PropKaki GLS tender results table (updated 25 Sep 2026)",
+     "https://www.propkaki.com/singapore-property-research/gls-sites-and-tender-results"
+    ],
+    [
+     "URA media release pr26-45",
+     "https://www.ura.gov.sg/Corporate/Media-Room/Media-Releases/pr26-45"
+    ]
+   ]
+  },
+  {
+   "slug": "river-valley-green-parcel-c",
+   "name": "River Valley Green (Parcel C)",
+   "kind": "Condo",
+   "group": "gls",
+   "status": "Land awarded – launch expected Q3 2027 (reported)",
+   "preview": "Q3 2027",
+   "sort": "2027-08-03",
+   "location": "River Valley Green",
+   "developer": "SMCL Haven 3 and CSC Land",
+   "bid": "S$750.6m",
+   "psf": "S$1,730",
+   "units": "About 470",
+   "tenure": "99-year leasehold",
+   "mrt": "Great World MRT (TE15), about 150 m straight-line (approx., OneMap)",
+   "award": "23 Jun 2026",
+   "src": [
+    [
+     "PropKaki GLS tender results table (updated 25 Sep 2026)",
+     "https://www.propkaki.com/singapore-property-research/gls-sites-and-tender-results"
+    ]
+   ]
+  },
+  {
+   "slug": "bayshore-drive-gls",
+   "name": "Bayshore Drive",
+   "kind": "Condo",
+   "group": "gls",
+   "status": "Land awarded – launch expected Q3 2027 (reported)",
+   "preview": "Q3 2027",
+   "sort": "2027-08-04",
+   "location": "Bayshore Drive",
+   "developer": "Gemini Residential and Gemini Trustee",
+   "bid": "S$2.13bn",
+   "psf": "S$1,323",
+   "units": "About 1,280",
+   "tenure": "99-year leasehold",
+   "mrt": "To be integrated with Bedok South MRT (TE30) and a bus interchange (reported)",
+   "award": "20 Jul 2026",
+   "src": [
+    [
+     "PropKaki GLS tender results table (updated 25 Sep 2026)",
+     "https://www.propkaki.com/singapore-property-research/gls-sites-and-tender-results"
+    ]
+   ]
+  },
+  {
+   "slug": "berlayar-drive-gls",
+   "name": "Berlayar Drive",
+   "kind": "Condo",
+   "group": "gls",
+   "status": "Land awarded – launch date TBC",
+   "preview": "TBC",
+   "sort": "2027-06-06",
+   "location": "Berlayar Drive",
+   "developer": "Intrepid Investments and GuocoLand",
+   "bid": "S$576,778,554",
+   "psf": "S$1,515",
+   "units": "About 415",
+   "tenure": "99-year leasehold",
+   "mrt": "TBC (Labrador Park MRT area)",
+   "award": "7 Aug 2026",
+   "extra": [
+    "Sole bid. Site area 25,263.2 sq m; maximum GFA 35,369 sq m (URA).",
+    "Different site from Berlayar Close."
+   ],
+   "src": [
+    [
+     "URA media release pr26-61",
+     "https://www.ura.gov.sg/Corporate/Media-Room/Media-Releases/pr26-61"
+    ],
+    [
+     "PropKaki GLS tender results table (updated 25 Sep 2026)",
+     "https://www.propkaki.com/singapore-property-research/gls-sites-and-tender-results"
+    ]
+   ]
+  },
+  {
+   "slug": "new-upper-changi-road-gls",
+   "name": "New Upper Changi Road",
+   "kind": "Condo",
+   "group": "gls",
+   "status": "Land awarded – launch expected Q4 2027 (reported)",
+   "preview": "Q4 2027",
+   "sort": "2027-11-01",
+   "location": "New Upper Changi Road (Bedok)",
+   "developer": "United Venture Development (Daisy) and CL Sapphire",
+   "bid": "S$1,425,388,000",
+   "psf": "S$1,537",
+   "units": "About 1,010",
+   "tenure": "99-year leasehold",
+   "mrt": "TBC",
+   "award": "4 Sep 2026",
+   "extra": [
+    "Site area 30,769 sq m; maximum GFA 86,154 sq m (URA)."
+   ],
+   "src": [
+    [
+     "URA media release pr26-64",
+     "https://www.ura.gov.sg/Corporate/Media-Room/Media-Releases/pr26-64"
+    ],
+    [
+     "PropKaki GLS tender results table (updated 25 Sep 2026)",
+     "https://www.propkaki.com/singapore-property-research/gls-sites-and-tender-results"
+    ]
+   ]
+  },
+  {
+   "slug": "lorong-puntong-gls",
+   "name": "Lorong Puntong / Sin Ming Avenue",
+   "kind": "Condo",
+   "group": "gls",
+   "status": "Land awarded – launch expected 2028 (reported)",
+   "preview": "2028",
+   "sort": "2028-03-01",
+   "location": "Lorong Puntong / Sin Ming Avenue",
+   "developer": "Eco World",
+   "bid": "S$208.1m",
+   "psf": "S$1,612",
+   "units": "About 140",
+   "tenure": "99-year leasehold",
+   "mrt": "Bright Hill MRT (TE7), about 350 m straight-line (approx., OneMap)",
+   "award": "18 Sep 2026",
+   "src": [
+    [
+     "PropKaki GLS tender results table (updated 25 Sep 2026)",
+     "https://www.propkaki.com/singapore-property-research/gls-sites-and-tender-results"
+    ]
+   ]
+  },
+  {
+   "slug": "canberra-drive-ec",
+   "name": "Canberra Drive EC",
+   "kind": "EC",
+   "group": "gls",
+   "status": "Land awarded – launch date TBC",
+   "preview": "TBC",
+   "sort": "2027-09-01",
+   "location": "Canberra Drive, Sembawang",
+   "developer": "SNC3 Realty, HS Invesco and Kay Lim Realty (Santarli-led)",
+   "bid": "S$163,903,000",
+   "psf": "S$825 (record EC land rate)",
+   "units": "About 185",
+   "tenure": "99-year leasehold",
+   "mrt": "Canberra MRT (NS12), about 250 m straight-line (approx., OneMap)",
+   "award": "15 Oct 2026 (HDB)",
+   "extra": [
+    "13 bids. Site area 11,535.4 sq m; maximum GFA 18,457 sq m.",
+    "First EC site sold under the May 2026 rules (10-year MOP, no deferred payment) and the S$18,000 income ceiling (reported)."
+   ],
+   "src": [
+    [
+     "Singapore Business Review, 15 Oct 2026",
+     "https://sbr.com.sg/residential-property/news/canberra-drive-ec-site-awarded-1639m"
+    ],
+    [
+     "EdgeProp GLS: Canberra Drive",
+     "https://www.edgeprop.sg/analytic/gls/canberra-drive-0"
+    ],
+    [
+     "99.co, Canberra Drive EC tender",
+     "https://www.99.co/singapore/insider/canberra-drive-ec-provisional-tender-results/"
+    ]
+   ]
+  },
+  {
+   "slug": "loyang-valley-redevelopment",
+   "name": "Loyang Valley (collective sale)",
+   "kind": "Condo",
+   "group": "enbloc",
+   "status": "Collective sale agreed – subject to approvals",
+   "preview": "TBC",
+   "sort": "2027-12-01",
+   "location": "Loyang Valley, Pasir Ris (District 17)",
+   "developer": "SingHaiyi-led consortium",
+   "bid": "S$880m",
+   "psf": "About S$940",
+   "units": "About 1,249 (potential)",
+   "tenure": "Subject to lease upgrade approval",
+   "mrt": "TBC",
+   "award": "17 Apr 2026 (sale agreed)",
+   "extra": [
+    "The existing estate has 362 units. The sale is subject to conditions, including lease-upgrade approval."
+   ],
+   "src": [
+    [
+     "The Straits Times, 17 Apr 2026",
+     "https://www.straitstimes.com/singapore/housing/loyang-valley-condo-sold-for-880m-to-singhaiyi-led-consortium"
+    ],
+    [
+     "EdgeProp, Loyang Valley sold en bloc",
+     "https://www.edgeprop.sg/property-news/loyang-valley-sold-en-bloc-singhaiyi-led-consortium-880-mil"
+    ]
+   ]
+  },
+  {
+   "slug": "tan-boon-liat-redevelopment",
+   "name": "Tan Boon Liat Building (collective sale)",
+   "kind": "Mixed",
+   "group": "enbloc",
+   "status": "Conditional sale – subject to approvals",
+   "preview": "TBC",
+   "sort": "2028-01-01",
+   "location": "Outram Road (Havelock)",
+   "developer": "Kingsford Group",
+   "bid": "S$950m",
+   "psf": "TBC",
+   "units": "TBC",
+   "tenure": "Freehold",
+   "mrt": "Havelock MRT (TE16), about 120 m straight-line (approx., OneMap)",
+   "award": "21 Jul 2026 (conditional)",
+   "extra": [
+    "Currently zoned Business 1; URA has indicated potential rezoning to residential with first-storey commercial use (reported).",
+    "Conditional on owners' approval and Strata Titles Board approval."
+   ],
+   "src": [
+    [
+     "CNA, Tan Boon Liat Building sold",
+     "https://www.channelnewsasia.com/singapore/tan-boon-liat-building-collective-sale-6267131"
+    ],
+    [
+     "The Business Times",
+     "https://www.businesstimes.com.sg/property/kingsford-group-inks-deal-buy-tan-boon-liat-building-lower-reserve-price-s950m"
+    ]
+   ]
+  }
+ ],
+ "existing": [
+  {
+   "slug": "marina-collection",
+   "name": "The Marina Collection",
+   "status": "Preview 6–13 Nov 2026; booking 14 Nov (reported)",
+   "preview": "6 Nov 2026",
+   "sort": "2026-11-06",
+   "kind": "Condo"
+  },
+  {
+   "slug": "chuan-grove",
+   "name": "One Chuan Grove",
+   "status": "Target preview 13 Feb 2027 (TBC)",
+   "preview": "13 Feb 2027",
+   "sort": "2027-02-13",
+   "kind": "Condo"
+  },
+  {
+   "slug": "dorset-road-residences",
+   "name": "Dorset Gardens (Dorset Road)",
+   "status": "Target launch 1H 2027",
+   "preview": "1H 2027",
+   "sort": "2027-03-15",
+   "kind": "Condo"
+  },
+  {
+   "slug": "hougang-central-analysis",
+   "name": "Hougang Central",
+   "status": "Land awarded 14 Jan 2026 – launch expected Q4 2027 (reported)",
+   "preview": "Q4 2027",
+   "sort": "2027-10-15",
+   "kind": "Condo"
+  },
+  {
+   "slug": "marina-gardens-lane",
+   "name": "Marina Gardens Lane",
+   "status": "Land awarded 26 Oct 2026 to EL Development – launch date TBC",
+   "preview": "TBC",
+   "sort": "2027-12-15",
+   "kind": "Condo",
+   "update": "Update, 30 Oct 2026: URA awarded the Marina Gardens Lane site on 26 Oct 2026 to EL Development (the sole bidder) for S$450.1m, about S$1,243 psf ppr. Site area 6,007.4 sq m; maximum GFA 33,642 sq m; residential with commercial on the 1st storey. Source: URA media release pr26-74.",
+   "upd_src": "https://www.ura.gov.sg/Corporate/Media-Room/Media-Releases/pr26-74"
+  },
+  {
+   "slug": "holland-plain",
+   "name": "Holland Plain (about 610 units)",
+   "status": "GLS confirmed list – tender pending",
+   "preview": "TBC",
+   "sort": "2028-02-01",
+   "kind": "Condo"
+  },
+  {
+   "slug": "orchard-boulevard",
+   "name": "Orchard Boulevard",
+   "status": "GLS tender closed 29 Oct 2026 – award pending",
+   "preview": "TBC",
+   "sort": "2028-02-02",
+   "kind": "Condo"
+  },
+  {
+   "slug": "east-coast-road",
+   "name": "East Coast Road",
+   "status": "GLS confirmed list – tender pending",
+   "preview": "TBC",
+   "sort": "2028-02-03",
+   "kind": "Condo"
+  },
+  {
+   "slug": "de-souza-avenue",
+   "name": "De Souza Avenue",
+   "status": "GLS confirmed list – tender pending",
+   "preview": "TBC",
+   "sort": "2028-02-04",
+   "kind": "Condo"
+  },
+  {
+   "slug": "tanjong-rhu-close",
+   "name": "Tanjong Rhu Close",
+   "status": "GLS confirmed list – tender pending",
+   "preview": "TBC",
+   "sort": "2028-02-05",
+   "kind": "Condo"
+  },
+  {
+   "slug": "berlayar-close",
+   "name": "Berlayar Close",
+   "status": "GLS confirmed list – tender pending",
+   "preview": "TBC",
+   "sort": "2028-02-06",
+   "kind": "Condo"
+  },
+  {
+   "slug": "jurong-east-avenue-1",
+   "name": "Jurong East Avenue 1 EC",
+   "status": "GLS confirmed list – tender pending",
+   "preview": "TBC",
+   "sort": "2028-02-07",
+   "kind": "EC"
+  },
+  {
+   "slug": "town-hall-link",
+   "name": "Town Hall Link",
+   "status": "GLS confirmed list – tender pending",
+   "preview": "TBC",
+   "sort": "2028-02-08",
+   "kind": "Condo"
+  }
+ ]
+}
