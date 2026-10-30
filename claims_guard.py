@@ -1,5 +1,6 @@
 """Claims guard (approved by Emmeline 24 + 30 Oct 2026). Strips unverified stats
-(15+ years, 500+ families, $250M+), and the sample homepage testimonials.
+(15+ years, 500+ families, $250M+, since 2009, 'independent' as a self-description),
+and the sample homepage testimonials (Alex & Mei Ling, The Tan Family).
 Used by build.py (scrub_claims) and postprocess.py. Idempotent."""
 import re
 AP="(?:’|'|&#8217;|&rsquo;)"
@@ -40,11 +41,16 @@ R=[
  (r'(?:Independently\s+)?assessed by Emmeline','Emmeline’s view'),
  (r'\s*[\d.]+\s*/\s*10\s*★+',''),
  (r'★+',''),
+ # --- 30 Oct (approved "Update the site's AI summary"): 'independent' as a description of her, wrong start year
+ (r'since 2009','since 2004'),
+ (r'\b(i)ndependent\s+(guidance|analysis|advice|insights?)\b',lambda m:(m.group(2)[0].upper()+m.group(2)[1:]) if m.group(1)=='I' else m.group(2)),
+ (r'\b([Aa])n?\s+independent\s+((?:property\s+|real estate\s+)?(?:agent|adviser|advisor|consultant|strategist|realtor))\b',lambda m:(m.group(1)+('n ' if m.group(2)[0] in 'aeiou' else ' '))+m.group(2)),
+ (r'\b([Ii])ndependent\s+((?:property\s+|real estate\s+)?(?:agent|adviser|advisor|consultant|strategist|realtor))\b',lambda m:(m.group(2)[0].upper()+m.group(2)[1:]) if m.group(1)=='I' else m.group(2)),
 ]
 def scrub(s):
     for a,b in R: s=re.sub(a,b,s,flags=re.I|re.S)
     return s
-BAD=re.compile(r'15\+ ?years|(?:more than|over) 15 years|500\+|\$\s?250\s?M|hundreds of families|Mei Ling|Tan Family|What Clients Say|Assessed by Emmeline|/\s*10\s*★|★',re.I)
+BAD=re.compile(r'15\+ ?years|(?:more than|over) 15 years|500\+|\$\s?250\s?M|hundreds of families|Mei Ling|Tan Family|What Clients Say|since 2009|\bAlex\b|\bindependent\s+(?:guidance|analysis|advice|insights?|(?:property\s+|real estate\s+)?(?:agent|adviser|advisor|consultant|strategist|realtor))\b|Assessed by Emmeline|/\s*10\s*★|★',re.I)
 
 # --- footer disclaimer label + enquiry-form consent (approved 30 Oct: "Yes, put the form and footer changes live")
 REQ_TXT='I consent to Emmeline Koh (PropNex) collecting and using my details to respond to this enquiry, per the <a href="/privacy-policy/">Privacy Policy</a>.'
@@ -78,6 +84,7 @@ def consent(s):
         s=s.replace('<p id="t-hint"></p>','<p id="t-hint"></p>'+CALC_NOTE,1)
     s=s.replace('"\\nEmail: "+$("g-email").value+"\\n\\n"+summary)',
                 '"\\nEmail: "+$("g-email").value+"\\n\\n"+summary+"\\n\\npdpa_consent: yes\\nmarketing_consent: "+($("g-mkt")&&$("g-mkt").checked?"yes":"no")+"\\nconsent_timestamp: "+'+SGT_JS+')')
-    s=s.replace('fd.append("ek-pdpa","1");','fd.append("ek-pdpa","1");fd.append("marketing_consent",$("g-mkt")&&$("g-mkt").checked?"yes":"no");fd.append("consent_timestamp",'+SGT_JS+');')
+    if 'fd.append("marketing_consent"' not in s:
+        s=s.replace('fd.append("ek-pdpa","1");','fd.append("ek-pdpa","1");fd.append("marketing_consent",$("g-mkt")&&$("g-mkt").checked?"yes":"no");fd.append("consent_timestamp",'+SGT_JS+');')
     return s
 CONSENT_BAD=re.compile(r'Disclaimer \(DRAFT|in line with the PDPA|under the PDPA\. See|contacting me by phone, WhatsApp or email about property advice')
