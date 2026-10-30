@@ -45,8 +45,9 @@ for f in files:
     slug=os.path.basename(os.path.dirname(f)) if f!=D+'/index.html' else 'home'
     path='' if slug=='home' else slug
     s=claims_guard.scrub(s)
+    s=claims_guard.consent(s)
     # consent checkbox links to the privacy policy
-    s=re.sub(r'(<label class="chk"><input[^>]*>[^<]*?)(</label>)',lambda m:m.group(0) if 'privacy-policy' in m.group(0) else m.group(1)+' See the <a href="/privacy-policy/">Privacy Policy</a>.'+m.group(2),s)
+    s=re.sub(r'(<label class="chk"><input[^>]*>[^<]*?)(</label>)',lambda m:m.group(0) if ('privacy-policy' in m.group(0) or 'marketing_consent' in m.group(0)) else m.group(1)+' See the <a href="/privacy-policy/">Privacy Policy</a>.'+m.group(2),s)
     if 'id="ld-agent"' not in s: s=s.replace('</head>',ld(AGENT,'ld-agent')+'</head>',1)
     # FAQPage for visible <div class="faq"> blocks, when the page has none
     if '<div class="faq">' in s and '"FAQPage"' not in s:

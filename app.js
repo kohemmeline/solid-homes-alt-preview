@@ -20,6 +20,6 @@ function setMode(){root.classList.toggle('walk-static',mqR.matches);if(mqR.match
 addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll,{passive:true});
 mqR.addEventListener?.('change',setMode);mqM.addEventListener?.('change',onScroll);setMode();onScroll();
 document.getElementById('enq').addEventListener('submit',e=>{e.preventDefault();const f=new FormData(e.target);
- const body=`Name: ${f.get('name')}\nMobile: ${f.get('mobile')}\nInterest: ${f.get('interest')}\n\n${f.get('message')||''}\n\nPDPA consent: yes`;
+ const body=`Name: ${f.get('name')}\nMobile: ${f.get('mobile')}\nInterest: ${f.get('interest')}\n\n${f.get('message')||''}\n\npdpa_consent: yes\nmarketing_consent: ${f.get('marketing_consent')==='yes'?'yes':'no'}\nconsent_timestamp: ${new Date(Date.now()+288e5).toISOString().slice(0,19)}+08:00`;
  location.href='mailto:solidhomesbyemmeline@gmail.com?subject='+encodeURIComponent('Website enquiry: '+f.get('interest'))+'&body='+encodeURIComponent(body);});
 })();

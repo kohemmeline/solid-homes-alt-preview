@@ -38,7 +38,7 @@
 <button class="btn" type="submit">See my estimate</button>
 </form>
 <div aria-live="polite" hidden="" id="ekc-out">
-<div class="teaser"><p class="eyebrow">Your estimate</p><p>You may look up to about</p><p class="big" id="t-price"></p><p id="t-hint"></p></div>
+<div class="teaser"><p class="eyebrow">Your estimate</p><p>You may look up to about</p><p class="big" id="t-price"></p><p id="t-hint"></p><p class="ekc-note">Estimates only, not financing advice. Bank and HDB assessments apply.</p></div>
 <div class="card"><div hidden="" id="ekc-ty" role="status" tabindex="-1"><p>Thank you — Emmeline will be in touch shortly.</p><p>Emmeline Koh, CEA R045542G, PropNex Realty Pte. Ltd., 8275 4135</p></div><div aria-hidden="true" class="locked" id="full"><table id="tbl"></table><div id="short"></div></div>
 <form id="ekc-gate" novalidate="">
 <h3>Unlock your full breakdown</h3>
@@ -46,7 +46,8 @@
 <label>Mobile<input autocomplete="tel" id="g-mobile" inputmode="tel" name="ek-mobile" required="" type="tel"/></label>
 <label>Email<input autocomplete="email" id="g-email" name="ek-email" required="" type="email"/></label></div>
 <label aria-hidden="true" class="hp">Leave blank<input autocomplete="off" id="g-hp" tabindex="-1"/></label>
-<p class="chk"><input id="g-pdpa" required="" type="checkbox"/><label for="g-pdpa">I consent to Emmeline Koh (PropNex Realty Pte. Ltd.) contacting me by phone, WhatsApp or email about property advice. My data will be used in line with the PDPA.</label></p>
+<p class="chk"><input id="g-pdpa" name="pdpa_consent" value="yes" required="" type="checkbox"/><label for="g-pdpa"><span>I consent to Emmeline Koh (PropNex) collecting and using my details to respond to this enquiry, per the <a href="/privacy-policy/">Privacy Policy</a>.</span></label></p>
+<p class="chk"><input id="g-mkt" name="marketing_consent" value="yes" type="checkbox"/><label for="g-mkt"><span>I'd like to receive property updates and marketing from Emmeline Koh by WhatsApp, phone, SMS or email. I can withdraw anytime.</span></label></p>
 <p class="warn" hidden="" id="g-err" role="alert"></p>
 <button class="btn gold" type="submit">Unlock breakdown</button></form>
 <div hidden="" id="cta"><p><strong>Want to sense-check these numbers?</strong></p>
@@ -141,8 +142,8 @@ if(!$("g-name").value.trim()||!/^\+?[0-9 ]{8,15}$/.test($("g-mobile").value.trim
 if(!$("g-pdpa").checked){err.textContent="Please tick the consent box to continue.";err.hidden=false;return}
 if(Date.now()-sent<30000){err.textContent="Please wait a moment before trying again.";err.hidden=false;return}sent=Date.now();
 function unlock(){$("full").classList.remove("locked");$("full").removeAttribute("aria-hidden");$("ekc-gate").hidden=true;$("cta").hidden=false}
-location.href="mailto:solidhomesbyemmeline@gmail.com?subject="+encodeURIComponent("Affordability calculator enquiry")+"&body="+encodeURIComponent("Name: "+$("g-name").value+"\nMobile: "+$("g-mobile").value+"\nEmail: "+$("g-email").value+"\n\n"+summary);unlock();$("ekc-ty").hidden=false;return;if(!EK_FORM_ID){unlock();return}
-var fd=new FormData();fd.append("ek-name",$("g-name").value);fd.append("ek-mobile",$("g-mobile").value);fd.append("ek-email",$("g-email").value);fd.append("ek-pdpa","1");fd.append("ek-summary",summary);
+location.href="mailto:solidhomesbyemmeline@gmail.com?subject="+encodeURIComponent("Affordability calculator enquiry")+"&body="+encodeURIComponent("Name: "+$("g-name").value+"\nMobile: "+$("g-mobile").value+"\nEmail: "+$("g-email").value+"\n\n"+summary+"\n\npdpa_consent: yes\nmarketing_consent: "+($("g-mkt")&&$("g-mkt").checked?"yes":"no")+"\nconsent_timestamp: "+new Date(Date.now()+288e5).toISOString().slice(0,19)+"+08:00");unlock();$("ekc-ty").hidden=false;return;if(!EK_FORM_ID){unlock();return}
+var fd=new FormData();fd.append("ek-name",$("g-name").value);fd.append("ek-mobile",$("g-mobile").value);fd.append("ek-email",$("g-email").value);fd.append("ek-pdpa","1");fd.append("marketing_consent",$("g-mkt")&&$("g-mkt").checked?"yes":"no");fd.append("consent_timestamp",new Date(Date.now()+288e5).toISOString().slice(0,19)+"+08:00");fd.append("marketing_consent",$("g-mkt")&&$("g-mkt").checked?"yes":"no");fd.append("consent_timestamp",new Date(Date.now()+288e5).toISOString().slice(0,19)+"+08:00");fd.append("marketing_consent",$("g-mkt")&&$("g-mkt").checked?"yes":"no");fd.append("consent_timestamp",new Date(Date.now()+288e5).toISOString().slice(0,19)+"+08:00");fd.append("marketing_consent",$("g-mkt")&&$("g-mkt").checked?"yes":"no");fd.append("consent_timestamp",new Date(Date.now()+288e5).toISOString().slice(0,19)+"+08:00");fd.append("marketing_consent",$("g-mkt")&&$("g-mkt").checked?"yes":"no");fd.append("consent_timestamp",new Date(Date.now()+288e5).toISOString().slice(0,19)+"+08:00");fd.append("ek-summary",summary);
 fd.append("_wpcf7",EK_FORM_ID);fd.append("_wpcf7_unit_tag","wpcf7-f"+EK_FORM_ID+"-o1");fd.append("_wpcf7_version","6.1.5");fd.append("_wpcf7_locale","en_US");
 fetch("/wp-json/contact-form-7/v1/contact-forms/"+EK_FORM_ID+"/feedback",{method:"POST",body:fd}).then(function(r){return r.json()}).then(function(j){
 if(j.status==="mail_sent"){unlock();err.hidden=true;$("ekc-ty").hidden=false;$("ekc-ty").focus()}else{err.textContent="Sorry, we couldn't send your details just now. Please try again, or WhatsApp/call Emmeline on 8275 4135.";err.hidden=false;sent=0}}).catch(function(){err.textContent="Sorry, we couldn't send your details (connection problem). Please try again, or WhatsApp/call Emmeline on 8275 4135.";err.hidden=false;sent=0});});
@@ -152,7 +153,7 @@ if(j.status==="mail_sent"){unlock();err.hidden=true;$("ekc-ty").hidden=false;$("
 <div><p class="k-fh">Explore</p><ul><li><a href="/area-guides/">Area Guides</a></li><li><a href="/school-guides/">School Guides</a></li><li><a href="/mrt-guides/">MRT Guides</a></li></ul></div>
 <div><p class="k-fh">Connect</p><ul><li><a href="/about-us/">About Emmeline</a></li><li><a href="/contact-us/">Contact</a></li><li><a href="/privacy-policy/">Privacy Policy</a></li></ul></div></div>
 <p class="k-cea">Emmeline Koh, CEA R045542G, PropNex Realty Pte. Ltd. (L3008022J) · <a href="tel:+6582754135">8275 4135</a> · <a href="mailto:solidhomesbyemmeline@gmail.com">solidhomesbyemmeline@gmail.com</a></p>
-<p class="k-disc"><strong>Disclaimer (DRAFT, pending Legal Officer review).</strong> The information on this website is provided for general information only and does not constitute financial, legal, tax or investment advice. While reasonable care has been taken, prices, availability, project details and policies may change and should be verified independently before making any decision. Artist's impressions and AI-generated images are for illustration only.</p>
+<p class="k-disc"><strong>Disclaimer:</strong> The information on this website is provided for general information only and does not constitute financial, legal, tax or investment advice. While reasonable care has been taken, prices, availability, project details and policies may change and should be verified independently before making any decision. Artist's impressions and AI-generated images are for illustration only.</p>
 <p class="k-rights">ALL RIGHTS RESERVED. 2026. Crafted and Designed by BK Han.</p>
 </footer>
 <script src="/chrome.js" defer></script><script src="/site.js" defer></script></body></html>

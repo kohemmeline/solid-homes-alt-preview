@@ -11,7 +11,7 @@ E=html.escape
 # --- claims guard (approved 24 Oct 2026): no year/family counts; use "since 2004"
 def scrub_claims(s):
     import sys as _s,os as _o; _s.path.insert(0,_o.path.dirname(_o.path.abspath(__file__)))
-    import claims_guard; return claims_guard.scrub(s)
+    import claims_guard; return claims_guard.consent(claims_guard.scrub(s))
 
 def imgname(u): return re.sub(r'\.[a-zA-Z]+$','',re.sub(r'.*/uploads/','',u).replace('/','-'))+'.webp'
 UP=re.compile(r'(?i)(?:https?://(?:www\.)?emmelinekoh\.sg)?/wp-content/uploads/[^"\'\s)]+?\.(?:jpe?g|png|webp|gif)')
@@ -328,7 +328,7 @@ def r_sections(secs,kind):
 # ---------- chrome ----------
 NAV=[('property-guides','Property Guides'),('new-launch-singapore','New Launches'),('affordability-calculator','Affordability Calculator'),('about-us','About'),('contact-us','Contact')]
 WA='https://wa.me/6582754135?text=Hi%20Emmeline%2C%20I%20found%20your%20website%20and%20would%20like%20a%20property%20consultation.'
-DISC='''<p class="k-disc"><strong>Disclaimer (DRAFT, pending Legal Officer review).</strong> The information on this website is provided for general information only and does not constitute financial, legal, tax or investment advice. While reasonable care has been taken, prices, availability, project details and policies may change and should be verified independently before making any decision. Artist's impressions and AI-generated images are for illustration only.</p>'''
+DISC='''<p class="k-disc"><strong>Disclaimer:</strong> The information on this website is provided for general information only and does not constitute financial, legal, tax or investment advice. While reasonable care has been taken, prices, availability, project details and policies may change and should be verified independently before making any decision. Artist's impressions and AI-generated images are for illustration only.</p>'''
 def head(title,extra=''):
     return f'''<!doctype html><html lang="en-SG"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{title}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -354,7 +354,7 @@ def foot():
 MAILFORM=f'''<form class="mform rv" action="mailto:solidhomesbyemmeline@gmail.com" method="post" enctype="text/plain" data-mailto>
 <label>Name<input name="name" required autocomplete="name"></label><label>Mobile<input name="mobile" type="tel" required autocomplete="tel"></label>
 <label>Email<input name="email" type="email" autocomplete="email"></label><label>Message<textarea name="message" rows="4"></textarea></label>
-<label class="chk"><input type="checkbox" required> I consent to Emmeline Koh contacting me about my enquiry, in line with the PDPA.</label>
+<label class="chk"><input type="checkbox" name="pdpa_consent" value="yes" required> <span>I consent to Emmeline Koh (PropNex) collecting and using my details to respond to this enquiry, per the <a href="/privacy-policy/">Privacy Policy</a>.</span></label><label class="chk"><input type="checkbox" name="marketing_consent" value="yes"> <span>I&#x27;d like to receive property updates and marketing from Emmeline Koh by WhatsApp, phone, SMS or email. I can withdraw anytime.</span></label>
 <button class="btn gold" type="submit">Send enquiry</button></form>'''
 # ---------- templates ----------
 def classify(slug,isPost):

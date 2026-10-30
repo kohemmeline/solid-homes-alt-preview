@@ -7,6 +7,6 @@ if(prog){const h=document.documentElement.scrollHeight-vh;prog.style.width=(h>0?
 addEventListener('scroll',()=>{if(!tk){tk=true;requestAnimationFrame(f)}},{passive:true});f();
 const q=document.querySelector('[data-filter]');if(q){const cards=[...document.querySelectorAll('.pg .card')],cnt=document.querySelector('.hub-count');
 const up=()=>{const v=q.value.trim().toLowerCase();let n=0;cards.forEach(c=>{const ok=!v||c.textContent.toLowerCase().includes(v);c.hidden=!ok;if(ok)n++});cnt.textContent=n+' of '+cards.length+' shown'};q.addEventListener('input',up);up();}
-document.querySelectorAll('form[data-mailto]').forEach(fm=>fm.addEventListener('submit',e=>{e.preventDefault();if(!fm.reportValidity())return;const fd=new FormData(fm);let body='';for(const [k,v] of fd.entries())body+=k+': '+v+'\n';
+document.querySelectorAll('form[data-mailto]').forEach(fm=>fm.addEventListener('submit',e=>{e.preventDefault();if(!fm.reportValidity())return;const fd=new FormData(fm);let body='';for(const [k,v] of fd.entries()){if(k==='pdpa_consent'||k==='marketing_consent')continue;body+=k+': '+v+'\n'}body+='pdpa_consent: yes\nmarketing_consent: '+(fd.get('marketing_consent')==='yes'?'yes':'no')+'\nconsent_timestamp: '+new Date(Date.now()+288e5).toISOString().slice(0,19)+'+08:00\n';
 location.href='mailto:solidhomesbyemmeline@gmail.com?subject='+encodeURIComponent('Website enquiry: '+document.title.split('|')[0].trim())+'&body='+encodeURIComponent(body)}));
 })();

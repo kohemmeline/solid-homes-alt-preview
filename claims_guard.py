@@ -45,3 +45,38 @@ def scrub(s):
     for a,b in R: s=re.sub(a,b,s,flags=re.I|re.S)
     return s
 BAD=re.compile(r'15\+ ?years|(?:more than|over) 15 years|500\+|\$\s?250\s?M|hundreds of families|Mei Ling|Tan Family|What Clients Say|Assessed by Emmeline|/\s*10\s*★|★',re.I)
+
+# --- footer disclaimer label + enquiry-form consent (approved 30 Oct: "Yes, put the form and footer changes live")
+REQ_TXT='I consent to Emmeline Koh (PropNex) collecting and using my details to respond to this enquiry, per the <a href="/privacy-policy/">Privacy Policy</a>.'
+MKT_TXT="I'd like to receive property updates and marketing from Emmeline Koh by WhatsApp, phone, SMS or email. I can withdraw anytime."
+CALC_NOTE='<p class="ekc-note">Estimates only, not financing advice. Bank and HDB assessments apply.</p>'
+SGT_JS='new Date(Date.now()+288e5).toISOString().slice(0,19)+"+08:00"'
+def _form(m):
+    f=m.group(0)
+    # standard forms: required consent label
+    f=re.sub(r'<label class="chk"><input type="checkbox"(?![^>]*marketing_consent)[^>]*>.*?</label>',
+             '<label class="chk"><input type="checkbox" name="pdpa_consent" value="yes" required> <span>'+REQ_TXT+'</span></label>',f,flags=re.S)
+    # calculator gate
+    f=re.sub(r'<p class="chk"><input id="g-pdpa"[^>]*/?><label for="g-pdpa">.*?</label></p>',
+             '<p class="chk"><input id="g-pdpa" name="pdpa_consent" value="yes" required="" type="checkbox"/><label for="g-pdpa"><span>'+REQ_TXT+'</span></label></p>',f,flags=re.S)
+    f=re.sub(r'<label class="chk"><input type="checkbox" name="marketing_consent"[^>]*>.*?</label>',
+             '<label class="chk"><input type="checkbox" name="marketing_consent" value="yes"> <span>'+MKT_TXT+'</span></label>',f,flags=re.S)
+    f=re.sub(r'<p class="chk"><input id="g-mkt"[^>]*/?><label for="g-mkt">.*?</label></p>',
+             '<p class="chk"><input id="g-mkt" name="marketing_consent" value="yes" type="checkbox"/><label for="g-mkt"><span>'+MKT_TXT+'</span></label></p>',f,flags=re.S)
+    if 'marketing_consent' not in f:
+        if 'id="g-pdpa"' in f:
+            f=re.sub(r'(<label for="g-pdpa">.*?</label></p>)',lambda x:x.group(1)+'\n<p class="chk"><input id="g-mkt" name="marketing_consent" value="yes" type="checkbox"/><label for="g-mkt">'+MKT_TXT+'</label></p>',f,count=1,flags=re.S)
+        else:
+            f=re.sub(r'(<label class="chk"><input type="checkbox" name="pdpa_consent"[^>]*>.*?</label>)',lambda x:x.group(1)+'<label class="chk"><input type="checkbox" name="marketing_consent" value="yes"> <span>'+MKT_TXT+'</span></label>',f,count=1,flags=re.S)
+    return f
+def consent(s):
+    s=s.replace('Disclaimer (DRAFT, pending Legal Officer review).','Disclaimer:')
+    s=re.sub(r'<form\b.*?</form>',_form,s,flags=re.S)
+    # calculator: disclaimer near result, consent fields in the mailto body (and the dormant CF7 path)
+    if 'id="t-hint"' in s and 'class="ekc-note"' not in s:
+        s=s.replace('<p id="t-hint"></p>','<p id="t-hint"></p>'+CALC_NOTE,1)
+    s=s.replace('"\\nEmail: "+$("g-email").value+"\\n\\n"+summary)',
+                '"\\nEmail: "+$("g-email").value+"\\n\\n"+summary+"\\n\\npdpa_consent: yes\\nmarketing_consent: "+($("g-mkt")&&$("g-mkt").checked?"yes":"no")+"\\nconsent_timestamp: "+'+SGT_JS+')')
+    s=s.replace('fd.append("ek-pdpa","1");','fd.append("ek-pdpa","1");fd.append("marketing_consent",$("g-mkt")&&$("g-mkt").checked?"yes":"no");fd.append("consent_timestamp",'+SGT_JS+');')
+    return s
+CONSENT_BAD=re.compile(r'Disclaimer \(DRAFT|in line with the PDPA|under the PDPA\. See|contacting me by phone, WhatsApp or email about property advice')
