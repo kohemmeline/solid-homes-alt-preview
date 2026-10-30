@@ -71,3 +71,5 @@ for f in files:
     # 'not the official website' wording removed at Emmeline's request (25 Oct 2026)
     for _p in [r"\s*This website is not the official website of any developer\.",r"\s*(?:It|This)(?: website| page| site)? is not (?:the|a|any) (?:developer(?:’|'|&#8217;)s )?official (?:website|site)(?: of [^.<]*)?\.?",r"\s*Not the developer(?:’|'|&#8217;)s (?:official )?(?:website|site)\."]: s=re.sub(_p,'',s)
     if s!=o: open(f,'w').write(s)
+# Google Search Console verification file + home meta (keep permanently)
+claims_guard.gsv(D)

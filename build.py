@@ -459,6 +459,7 @@ if __name__=='__main__':
     tpl=open(OUT+'/index.tpl.html').read()
     open(OUT+'/index.html','w').write(scrub_claims(tpl.replace('<!--NAV-->',nav()).replace('<!--FOOT-->',foot()).replace('<!--HOMEMAIN-->',homesecs)))
     report.append(('',"home",round(coverage(raw,homesecs),3)))
+    import claims_guard; claims_guard.gsv(OUT)  # Google Search Console verification file + home meta tag (keep permanently)
     json.dump(report,open(CR+'/coverage.json','w')); json.dump(built,open(CR+'/pages-built.json','w'))
     from collections import Counter as C
     print(C(k for _,k,_ in report)); low=[r for r in report if r[2]<0.97]; print('low coverage',len(low)); print(sorted(low,key=lambda r:r[2])[:25])

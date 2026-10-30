@@ -89,3 +89,22 @@ def consent(s):
         s=s.replace('fd.append("ek-pdpa","1");','fd.append("ek-pdpa","1");fd.append("marketing_consent",$("g-mkt")&&$("g-mkt").checked?"yes":"no");fd.append("consent_timestamp",'+SGT_JS+');')
     return s
 CONSENT_BAD=re.compile(r'Disclaimer \(DRAFT|in line with the PDPA|under the PDPA\. See|contacting me by phone, WhatsApp or email about property advice')
+
+
+# --- Google Search Console verification (approved by Emmeline 30 Oct 2026, 'request a re-crawl'). KEEP PERMANENTLY.
+GSV_FILE='googleeb065822e5d9910f.html'
+GSV_BODY='google-site-verification: googleeb065822e5d9910f.html'
+GSV_META='<meta name="google-site-verification" content="vGxmULZYScGRBCGXPZ8Ao_VoH1mDMVyNCSsBIsIW6pc" />'
+def gsv_meta(s):
+    """Ensure the GSC meta tag is in <head> exactly once (home page)."""
+    s=re.sub(r'\s*<meta name="google-site-verification"[^>]*>','',s)
+    return re.sub(r'(<meta name="viewport"[^>]*>)',lambda m:m.group(1)+'\n'+GSV_META,s,count=1) if '<meta name="viewport"' in s else s.replace('<head>','<head>\n'+GSV_META,1)
+def gsv(D):
+    """Write the GSC verification file (exact body, no trailing newline) and the home meta tag."""
+    import os
+    f=os.path.join(D,GSV_FILE)
+    if not os.path.exists(f) or open(f).read()!=GSV_BODY: open(f,'w').write(GSV_BODY)
+    h=os.path.join(D,'index.html')
+    if os.path.exists(h):
+        t=open(h).read(); n=gsv_meta(t)
+        if n!=t: open(h,'w').write(n)
