@@ -22,6 +22,7 @@ def img_url(u):
 def link(h):
     if not h: return '#'
     m=re.match(r'(?:https?://(?:www\.)?emmelinekoh\.sg)?/(?!/)(.*)',h)
+    if UP.fullmatch(h): return img_url(h) or re.sub(r'(?i)^https?://(?:www\.)?emmelinekoh\.sg','https://emmelinekoh.sg',h)  # old WP image links -> local copy / bare domain
     if m and not re.match(r'(wp-|feed)',m.group(1)): return BASE+'/'+m.group(1)
     if re.fullmatch(r'https?://(www\.)?emmelinekoh\.sg/?',h): return BASE+'/'
     return h

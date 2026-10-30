@@ -73,3 +73,5 @@ for f in files:
     if s!=o: open(f,'w').write(s)
 # Google Search Console verification file + home meta (keep permanently)
 claims_guard.gsv(D)
+# Canonical host + exactly one self canonical on every page (keep permanently)
+claims_guard.canon_all(D)

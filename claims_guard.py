@@ -108,3 +108,45 @@ def gsv(D):
     if os.path.exists(h):
         t=open(h).read(); n=gsv_meta(t)
         if n!=t: open(h,'w').write(n)
+
+
+# --- Canonical host (30 Oct 2026, Emmeline's re-crawl approval). KEEP: GitHub Pages serves the bare domain
+# https://emmelinekoh.sg/ (www and http 301 to it). Every self-reference must use it; every page gets exactly
+# one self canonical (meta-refresh redirect stubs keep their canonical to the target).
+SITE='https://emmelinekoh.sg'
+_UPL=re.compile(r'(?i)(?:https?://(?:www\.)?emmelinekoh\.sg)?/wp-content/uploads/([^"\'\s)<>]+?)\.(?:jpe?g|png|webp|gif)')
+def host(s,D=None):
+    """Old WordPress image URLs -> local /assets/img copy (if present); www/http self refs -> https bare domain."""
+    import os
+    if D:
+        def _m(m):
+            n=m.group(1).replace('/','-')+'.webp'
+            return '/assets/img/'+n if os.path.exists(os.path.join(D,'assets','img',n)) else m.group(0)
+        s=_UPL.sub(_m,s)
+    return re.sub(r'(?i)https?://www\.emmelinekoh\.sg|http://emmelinekoh\.sg',SITE,s)
+def page_url(D,f):
+    import os
+    rel=os.path.relpath(f,D).replace(os.sep,'/')
+    return SITE+'/'+(rel[:-len('index.html')] if rel.endswith('index.html') else rel)
+def canonical(s,url):
+    if '<head' not in s: return s
+    if re.search(r'(?i)<meta[^>]*http-equiv=["\']refresh',s) and re.search(r'(?i)rel=["\']canonical',s): return s
+    s=re.sub(r'(?i)\s*<link[^>]*rel=["\']canonical["\'][^>]*>','',s)
+    tag='<link rel="canonical" href="%s">'%url
+    if re.search(r'<meta name="viewport"[^>]*>',s): return re.sub(r'(<meta name="viewport"[^>]*>)',lambda m:m.group(1)+'\n'+tag,s,count=1)
+    return re.sub(r'(<head[^>]*>)',lambda m:m.group(1)+'\n'+tag,s,count=1)
+def canon_all(D):
+    """Apply host() + one self canonical (+ og:url/twitter:url self, if present) to every served page; host() on sitemap/robots/llms."""
+    import os,glob
+    for f in glob.glob(os.path.join(D,'**','*.html'),recursive=True):
+        if '/.git/' in f or '/overrides/' in f or 'backup' in f: continue
+        t=open(f).read(); u=page_url(D,f); n=host(t,D)
+        if '<head' in n:
+            n=canonical(n,u)
+            n=re.sub(r'(<meta[^>]*(?:property|name)=["\'](?:og|twitter):url["\'][^>]*content=["\'])[^"\']*',lambda m:m.group(1)+u,n)
+        if n!=t: open(f,'w').write(n)
+    for x in ('sitemap.xml','robots.txt','llms.txt'):
+        f=os.path.join(D,x)
+        if os.path.exists(f):
+            t=open(f).read(); n=host(t)
+            if n!=t: open(f,'w').write(n)
