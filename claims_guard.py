@@ -123,6 +123,12 @@ def host(s,D=None):
             n=m.group(1).replace('/','-')+'.webp'
             return '/assets/img/'+n if os.path.exists(os.path.join(D,'assets','img',n)) else m.group(0)
         s=_UPL.sub(_m,s)
+    # empty WordPress upload refs (no file name) -> drop the element cleanly (30 Oct 2026, 'Yes, fix them')
+    _E=r'(?:https?://(?:www\.)?emmelinekoh\.sg)?/wp-content/uploads/'
+    s=re.sub(r'<figure>\s*<img[^>]*src="'+_E+r'"[^>]*>\s*</figure>','',s)
+    s=re.sub(r'<img[^>]*src="'+_E+r'"[^>]*>','',s)
+    s=re.sub(r'<div class="gal[^"]*">\s*</div>','',s)
+    s=re.sub(r'\s*style="--hero:url\(\''+_E+r'\'\)"','',s)
     return re.sub(r'(?i)https?://www\.emmelinekoh\.sg|http://emmelinekoh\.sg',SITE,s)
 def page_url(D,f):
     import os
