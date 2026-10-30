@@ -27,8 +27,21 @@ R=[
  (r'\s*<p class="rv">What Clients Say</p>',''),
  (r'<h2 class="dh rv"><span class="s">Real feedback from real</span> <span class="o">clients</span></h2>','<h2 class="dh rv"><span class="s">About</span> <span class="o">Emmeline</span></h2>'),
  (r'(?:<p class="rv">“</p>\s*(?:<p class="rv">[^<]*</p>\s*){4})+',''),
+ # --- numeric scores with stars (approved 30 Oct: "Remove the 8.6/10 scores")
+ # raw WP verdict score block
+ (r'<div class="score">\s*<div class="n">[^<]*</div>\s*<div class="of">[^<]*</div>\s*<div class="stars">[^<]*</div>\s*</div>\s*',''),
+ # output: single-score stats row (whole wrapper), then any leftover score entry
+ (r'\s*<div class="stats rv"><div class="st"><b>[\d.]+\s*/\s*10\s*★*</b><span>[^<]*</span></div></div>',''),
+ (r'<div class="st"><b>[\d.]+\s*/\s*10\s*★*</b><span>[^<]*</span></div>',''),
+ (r'<div class="st"><b>[^<]*★[^<]*</b><span>[^<]*</span></div>',''),
+ (r'\s*<div class="stats rv">\s*</div>',''),
+ # headings: keep the summary text, drop the "assessed" framing
+ (r'(<h[1-6][^>]*>)\s*(?:Independently\s+)?assessed by Emmeline\s*(</h[1-6]>)',r'\1Emmeline’s view\2'),
+ (r'(?:Independently\s+)?assessed by Emmeline','Emmeline’s view'),
+ (r'\s*[\d.]+\s*/\s*10\s*★+',''),
+ (r'★+',''),
 ]
 def scrub(s):
     for a,b in R: s=re.sub(a,b,s,flags=re.I|re.S)
     return s
-BAD=re.compile(r'15\+ ?years|(?:more than|over) 15 years|500\+|\$\s?250\s?M|hundreds of families|Mei Ling|Tan Family|What Clients Say',re.I)
+BAD=re.compile(r'15\+ ?years|(?:more than|over) 15 years|500\+|\$\s?250\s?M|hundreds of families|Mei Ling|Tan Family|What Clients Say|Assessed by Emmeline|/\s*10\s*★|★',re.I)
