@@ -20,14 +20,17 @@ try:
     for loc,d in re.findall(r'<loc>([^<]+)</loc><lastmod>([^<]+)</lastmod>',open(D+'/sitemap.xml').read()): lm[loc.replace(S,'').strip('/')]=d
 except FileNotFoundError: pass
 def ld(o,i): return f'<script type="application/ld+json" id="{i}">{json.dumps(o,ensure_ascii=False)}</script>'
-# --- /privacy-policy/ from content/privacy-policy.md (Legal Officer draft), if missing
+# --- /privacy-policy/ regenerated from content/privacy-policy.md (Legal Officer draft) every run
 PP=os.path.join(os.path.dirname(os.path.abspath(__file__)),'content','privacy-policy.md')
-if os.path.exists(PP) and os.path.exists(D+'/about-us/index.html') and not os.path.exists(D+'/privacy-policy/index.html'):
+if os.path.exists(PP) and os.path.exists(D+'/about-us/index.html'):
     import markdown
     t=open(D+'/about-us/index.html').read()
     t=re.sub(r'<script type="application/ld\+json"[^>]*>.*?</script>','',t,flags=re.S)
     t=re.sub(r'<title>.*?</title>','<title>Privacy Policy | Emmeline Koh</title>',t,count=1)
-    body=markdown.markdown(open(PP).read())
+    md=re.sub(r'^\W*Draft, pending[^\n]*\n+','',open(PP).read(),flags=re.M|re.I)
+    md=re.sub(r'^\W*Last updated[^\n]*\n+','',md,flags=re.M|re.I)
+    md=re.sub(r'^(# [^\n]*\n+)',r'\1Last updated 30 Oct 2026\n\n',md,count=1)
+    body=markdown.markdown(md)
     t=t[:t.index('<main')]+'<main class="pg pg--legal"><section class="sec light"><div class="sec-in" style="max-width:760px;margin:0 auto;padding:120px 20px 60px">'+body+'</div></section></main>'+t[t.index('</main>')+7:]
     os.makedirs(D+'/privacy-policy',exist_ok=True); open(D+'/privacy-policy/index.html','w').write(t)
 SM=D+'/sitemap.xml'

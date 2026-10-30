@@ -1,8 +1,6 @@
 # Privacy Policy
 
-**Draft, pending Legal Officer review.**
-
-*Last updated: 30 October 2026*
+Last updated 30 Oct 2026
 
 This website, emmelinekoh.sg, is run by **Emmeline Koh, CEA R045542G, PropNex Realty Pte. Ltd. (L3008022J)**. This policy explains how your personal data is handled under Singapore's Personal Data Protection Act 2012 (PDPA).
 
