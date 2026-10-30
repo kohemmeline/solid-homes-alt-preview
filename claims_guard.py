@@ -50,6 +50,7 @@ R=[
 def scrub(s):
     for a,b in R: s=re.sub(a,b,s,flags=re.I|re.S)
     return s
+# Approved tagline, keep (Emmeline 30 Oct 2026): 'Your Trusted Singapore Property Advisor' must never be scrubbed or matched by BAD.
 BAD=re.compile(r'15\+ ?years|(?:more than|over) 15 years|500\+|\$\s?250\s?M|hundreds of families|Mei Ling|Tan Family|What Clients Say|since 2009|\bAlex\b|\bindependent\s+(?:guidance|analysis|advice|insights?|(?:property\s+|real estate\s+)?(?:agent|adviser|advisor|consultant|strategist|realtor))\b|Assessed by Emmeline|/\s*10\s*★|★',re.I)
 
 # --- footer disclaimer label + enquiry-form consent (approved 30 Oct: "Yes, put the form and footer changes live")
