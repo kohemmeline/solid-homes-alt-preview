@@ -4,6 +4,8 @@ RealEstateAgent JSON-LD, FAQPage JSON-LD for visible FAQs, 'Updated' date on gui
 pages, wa.me utm_source, and the 'How did you find me?' field on enquiry forms."""
 import sys,os,re,json,glob,html
 from bs4 import BeautifulSoup
+sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
+import claims_guard
 D=sys.argv[1] if len(sys.argv)>1 else os.path.dirname(os.path.abspath(__file__))
 S='https://emmelinekoh.sg'
 AGENT={"@context":"https://schema.org","@type":"RealEstateAgent","@id":S+"/#agent",
@@ -18,12 +20,30 @@ try:
     for loc,d in re.findall(r'<loc>([^<]+)</loc><lastmod>([^<]+)</lastmod>',open(D+'/sitemap.xml').read()): lm[loc.replace(S,'').strip('/')]=d
 except FileNotFoundError: pass
 def ld(o,i): return f'<script type="application/ld+json" id="{i}">{json.dumps(o,ensure_ascii=False)}</script>'
+# --- /privacy-policy/ from content/privacy-policy.md (Legal Officer draft), if missing
+PP=os.path.join(os.path.dirname(os.path.abspath(__file__)),'content','privacy-policy.md')
+if os.path.exists(PP) and os.path.exists(D+'/about-us/index.html') and not os.path.exists(D+'/privacy-policy/index.html'):
+    import markdown
+    t=open(D+'/about-us/index.html').read()
+    t=re.sub(r'<script type="application/ld\+json"[^>]*>.*?</script>','',t,flags=re.S)
+    t=re.sub(r'<title>.*?</title>','<title>Privacy Policy | Emmeline Koh</title>',t,count=1)
+    body=markdown.markdown(open(PP).read())
+    t=t[:t.index('<main')]+'<main class="pg pg--legal"><section class="sec light"><div class="sec-in" style="max-width:760px;margin:0 auto;padding:120px 20px 60px">'+body+'</div></section></main>'+t[t.index('</main>')+7:]
+    os.makedirs(D+'/privacy-policy',exist_ok=True); open(D+'/privacy-policy/index.html','w').write(t)
+SM=D+'/sitemap.xml'
+if os.path.exists(SM):
+    sm=open(SM).read()
+    if S+'/privacy-policy/' not in sm:
+        sm=sm.replace('</urlset>','<url><loc>'+S+'/privacy-policy/</loc><lastmod>2026-10-30</lastmod></url>\n</urlset>'); open(SM,'w').write(sm)
 files=[D+'/index.html']+sorted(glob.glob(D+'/*/index.html'))
 for f in files:
     s=open(f).read(); o=s
     if 'http-equiv="refresh"' in s: continue
     slug=os.path.basename(os.path.dirname(f)) if f!=D+'/index.html' else 'home'
     path='' if slug=='home' else slug
+    s=claims_guard.scrub(s)
+    # consent checkbox links to the privacy policy
+    s=re.sub(r'(<label class="chk"><input[^>]*>[^<]*?)(</label>)',lambda m:m.group(0) if 'privacy-policy' in m.group(0) else m.group(1)+' See the <a href="/privacy-policy/">Privacy Policy</a>.'+m.group(2),s)
     if 'id="ld-agent"' not in s: s=s.replace('</head>',ld(AGENT,'ld-agent')+'</head>',1)
     # FAQPage for visible <div class="faq"> blocks, when the page has none
     if '<div class="faq">' in s and '"FAQPage"' not in s:

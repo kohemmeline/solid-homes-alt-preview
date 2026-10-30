@@ -10,15 +10,8 @@ POSTS=json.load(open(CR+'/posts.json'))
 E=html.escape
 # --- claims guard (approved 24 Oct 2026): no year/family counts; use "since 2004"
 def scrub_claims(s):
-    import re as _re
-    R=[(r'agent with (?:more than|over) 15 years of experience advising','agent in Singapore real estate since 2004, advising'),
-       (r'<span class="cred-chip">500\+ Families Helped</span>(?:<br\s*/?>)?\s*',''),
-       (r'15\+ Years','Since 2004'),
-       (r'(?:grounded in |through strategy, data and )15\+ years of experience',lambda m:m.group(0).replace('15+ years of experience','experience in Singapore real estate since 2004')),
-       (r'(?:more than|over) 15 years(?: of experience)?','experience in Singapore real estate since 2004'),
-       (r'[Hh]undreds of families','clients'),(r'500\+ (?:families|clients|homeowners)','clients')]
-    for a,b in R: s=_re.sub(a,b,s,flags=_re.I) if isinstance(b,str) else _re.sub(a,b,s)
-    return s
+    import sys as _s,os as _o; _s.path.insert(0,_o.path.dirname(_o.path.abspath(__file__)))
+    import claims_guard; return claims_guard.scrub(s)
 
 def imgname(u): return re.sub(r'\.[a-zA-Z]+$','',re.sub(r'.*/uploads/','',u).replace('/','-'))+'.webp'
 UP=re.compile(r'(?i)(?:https?://(?:www\.)?emmelinekoh\.sg)?/wp-content/uploads/[^"\'\s)]+?\.(?:jpe?g|png|webp|gif)')
