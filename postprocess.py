@@ -75,3 +75,5 @@ for f in files:
 claims_guard.gsv(D)
 # Canonical host + exactly one self canonical on every page (keep permanently)
 claims_guard.canon_all(D)
+# sitemap.xml from the served pages + robots.txt Sitemap line (keep permanently)
+claims_guard.sitemap(D)

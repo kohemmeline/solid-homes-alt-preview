@@ -49,6 +49,37 @@ R=[
 ]
 def scrub(s):
     for a,b in R: s=re.sub(a,b,s,flags=re.I|re.S)
+    return facts(s)
+
+# --- 31 Oct 2026 (approved): factual corrections, case-sensitive, idempotent.
+# BSD: IRAS residential rates from 15 Feb 2023 (iras.gov.sg BSD page): 1% first 180k, 2% next 180k, 3% next 640k,
+# 4% next 500k, 5% next 1.5M, 6% above 3M. S$1.5M=44,600; S$2M=69,600; S$2.5M=94,600.
+EDGE_ORCH='https://www.edgeprop.sg/property-news/hong-leong-holdings-tid-joint-venture-submits-top-bid-1755-psf-ppr-orchard-boulevard-gls-site'
+FACTS=[
+ (r'~S\$39,600','~S$44,600'),(r'~S\$57,600','~S$69,600'),(r'~S\$75,600','~S$94,600'),
+ (r'BSD is approximately S\$57,600','BSD is approximately S$69,600'),
+ (r'BSD via CPF: S\$57,600','BSD via CPF: S$69,600'),
+ (r'next S\$640,000 at 3%, and the remainder at 4%\.','next S$640,000 at 3%, next S$500,000 at 4%, next S$1,500,000 at 5%, and the remainder above S$3,000,000 at 6% (IRAS residential rates from 15 Feb 2023).'),
+]
+# Orchard Boulevard GLS: tender closed 29 Oct 2026; top bid confirmed by EdgeProp (29 Oct 2026, table sourced from URA). Scoped to that page.
+ORCH=[
+ (r'GLS Tender Closes 29 Oct 2026','GLS Tender Closed 29 Oct 2026'),
+ (r'<b>29 Oct</b><span>Tender closes</span>','<b>S$1,755</b><span>Top bid psf ppr</span>'),
+ (r'The tender closes on 29 October 2026 at 12 noon\. Until URA announces the bids and awards the site,','The tender closed on 29 October 2026 at 12 noon with five bids. The top bid was S$181.86 million, or S$1,755 psf ppr, from a joint venture between Hong Leong Holdings and TID (<a href="'+EDGE_ORCH+'" target="_blank" rel="noopener">EdgeProp, 29 Oct 2026</a>). A top bid is not an award: until URA awards the site,'),
+ (r'Want the tender result the day it'+AP+r's out\?','Want URA’s award decision the day it’s out?'),
+ (r'Tender closes 29 Oct 2026, 12 noon','Tender closed 29 Oct 2026, 12 noon (5 bids; top bid S$1,755 psf ppr, Hong Leong Holdings and TID)'),
+ (r'1\. Tender closes(</h\d>\s*<p[^>]*>)29 Oct 2026, 12 noon\. URA then publishes the bids received\.',r'1. Tender closed\g<1>Closed 29 Oct 2026, 12 noon. URA published five bids; the top bid was S$1,755 psf ppr.'),
+ (r'URA('+AP+r')s tender closes on 29 October 2026 at 12 noon\. No developer, project name, prices or launch date have been announced yet\.',r'URA\1s tender closed on 29 October 2026 with five bids; the top bid, S$1,755 psf ppr, came from Hong Leong Holdings and TID. URA has not yet awarded the site, and no project name, prices or launch date have been announced.'),
+ (r'The GLS tender closes on 29 October 2026;','The GLS tender closed on 29 October 2026;'),
+ (r'the tender result, the awarded developer','URA’s award decision, the developer'),
+ (r'The tender closes on 29 Oct 2026; the developer is to be awarded\.','The tender closed on 29 Oct 2026 with a top bid of S$1,755 psf ppr; the site is not yet awarded.'),
+]
+FACT_BAD=re.compile(r'remainder at 4%|~S\$(?:39|57|75),600|BSD (?:is approximately|via CPF:) S\$57,600|GLS Tender Closes 29 Oct|Tender closes 29 Oct|tender closes on 29 Oct')
+def facts(s):
+    for a,b in FACTS: s=re.sub(a,b,s)
+    if 'Orchard Boulevard' in s and '3,438' in s and '29 Oct' in s:
+        for a,b in ORCH: s=re.sub(a,b,s)
+    if 'S$44,600' in s and 'How Much Do I Need To Buy A Condo' in s: s=re.sub(r'(Updated:(?:</strong>)?\s*)July 2026',r'\1October 2026',s).replace('Updated 2026-06-18','Updated 2026-10-31')
     return s
 # Approved tagline, keep (Emmeline 30 Oct 2026): 'Your Trusted Singapore Property Advisor' must never be scrubbed or matched by BAD.
 BAD=re.compile(r'15\+ ?years|(?:more than|over) 15 years|500\+|\$\s?250\s?M|hundreds of families|Mei Ling|Tan Family|What Clients Say|since 2009|\bAlex\b|\bindependent\s+(?:guidance|analysis|advice|insights?|(?:property\s+|real estate\s+)?(?:agent|adviser|advisor|consultant|strategist|realtor))\b|Assessed by Emmeline|/\s*10\s*★|★',re.I)
@@ -156,3 +187,42 @@ def canon_all(D):
         if os.path.exists(f):
             t=open(f).read(); n=host(t)
             if n!=t: open(f,'w').write(n)
+
+
+# --- 31 Oct 2026 (approved): sitemap.xml regenerated on every postprocess run (keep permanently).
+# Lists every served page as https://emmelinekoh.sg/<path>/ (apex, https, trailing slash); skips meta-refresh
+# stubs, noindex pages, 404, the GSC verification file and non-page dirs. Keeps existing lastmods; new or
+# touched pages get today's SGT date. Validates XML and keeps the Sitemap line in robots.txt.
+SKIP_DIRS={'assets','overrides','launches','node_modules','404'}
+def sitemap(D,touch=()):
+    import os,datetime,xml.dom.minidom
+    sm=os.path.join(D,'sitemap.xml'); old={}; order=[]
+    if os.path.exists(sm):
+        for u,d in re.findall(r'<loc>\s*([^<\s]+)\s*</loc>\s*<lastmod>\s*([^<\s]+)\s*</lastmod>',open(sm).read()):
+            u=host(u)
+            if u not in old: old[u]=d; order.append(u)
+    today=(datetime.datetime.utcnow()+datetime.timedelta(hours=8)).strftime('%Y-%m-%d')
+    pages=set()
+    for root,ds,fs in os.walk(D):
+        ds[:]=[x for x in ds if not x.startswith('.') and x not in SKIP_DIRS]
+        if 'index.html' not in fs: continue
+        t=open(os.path.join(root,'index.html'),errors='ignore').read()
+        if re.search(r'http-equiv=["\']?refresh',t,re.I) or re.search(r'<meta[^>]+name=["\']robots["\'][^>]*noindex',t,re.I): continue
+        rel=os.path.relpath(root,D).replace(os.sep,'/')
+        pages.add(SITE+'/'+('' if rel=='.' else rel.strip('/')+'/'))
+    touch={SITE+'/'+(t.strip('/')+'/' if t.strip('/') else '') for t in touch}
+    urls=[u for u in order if u in pages]+sorted(pages-set(order))
+    if SITE+'/' in urls: urls.remove(SITE+'/'); urls.insert(0,SITE+'/')
+    out='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    for u in urls:
+        d=today if (u in touch or u not in old) else old[u]
+        out+='<url><loc>%s</loc><lastmod>%s</lastmod></url>\n'%(u.replace('&','&amp;'),d)
+    out+='</urlset>\n'
+    xml.dom.minidom.parseString(out.encode())
+    if not os.path.exists(sm) or open(sm).read()!=out: open(sm,'w').write(out)
+    rb=os.path.join(D,'robots.txt')
+    if os.path.exists(rb):
+        r=open(rb).read()
+        if 'Sitemap: '+SITE+'/sitemap.xml' not in r:
+            r=re.sub(r'(?im)^Sitemap:.*\n?','',r).rstrip('\n')+'\n\nSitemap: '+SITE+'/sitemap.xml\n'; open(rb,'w').write(r)
+    return len(urls)
