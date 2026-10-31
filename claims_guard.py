@@ -74,11 +74,29 @@ ORCH=[
  (r'the tender result, the awarded developer','URA’s award decision, the developer'),
  (r'The tender closes on 29 Oct 2026; the developer is to be awarded\.','The tender closed on 29 Oct 2026 with a top bid of S$1,755 psf ppr; the site is not yet awarded.'),
 ]
+# What Is ABSD In Singapore (approved 31 Oct): IRAS ABSD rates on/after 27 Apr 2023 (SC 0/20/30, SPR 5/30/35, FR 60, entities 65)
+# and residential BSD tiers; S$2M BSD = 69,600. Scoped to that page.
+ABSD_PG=[
+ (r'a tax imposed on anyone buying a residential property in Singapore who already owns one or more properties\.','a tax on top of BSD for certain residential property buyers in Singapore: Singapore Citizens and PRs who already own a home, PRs buying their first home (5%), and foreigners and entities on any purchase.'),
+ (r'ABSD is an additional tax on property buyers who already own residential property in Singapore\. Rates range from 0% \(first home, SC\) to 60% \(foreigners\)\.','ABSD is an additional tax on top of BSD for SCs and PRs who already own residential property, PRs buying their first home, and all foreign and entity buyers. Rates range from 0% (first home, SC) to 60% (foreigners) and 65% (entities).'),
+ (r'(Updated:(?:</strong>)?\s*)July 2026 \(IRAS\)',r'\g<1>October 2026 (IRAS)'),
+ (r'· Updated 2026-07-09','· Updated 2026-10-31'),
+ (r'(<tr><td>Foreigner</td><td>60%</td><td>60%</td><td>60%</td></tr>)(?!<tr><td>Entit)',r'\1<tr><td>Entity (company, trust)</td><td>65%</td><td>65%</td><td>65%</td></tr>'),
+ (r'approximately S\$476,000','approximately S$469,600 (BSD S$69,600 + ABSD S$400,000)'),
+ (r'They own a HDB jointly and want to buy','They are Singapore Citizens who own a HDB jointly and want to buy'),
+ (r'4% next S\$500K, 5% above S\$1\.5M\)','4% next S$500K, 5% next S$1.5M, 6% above S$3M)'),
+ (r'If both are SC/PR and neither owns property, the first joint purchase is 0% ABSD\.','If both are Singapore Citizens and neither owns property, the first joint purchase is 0% ABSD. If one spouse is a PR, the 5% PR rate is paid upfront and may be refunded under the ABSD remission for SC married couples; two PRs pay 5%.'),
+ (r'ABSD specifically targets buyers who already own residential property\.','ABSD mainly targets buyers who already own residential property, plus foreign and entity buyers.'),
+ (r'is an extra tax on top of BSD, only for buyers who already own residential property\.','is an extra tax on top of BSD for SCs and PRs who already own residential property, PRs buying their first home (5%), and all foreign (60%) and entity (65%) buyers.'),
+]
+ABSD_BAD=re.compile(r'S\$476,000|5% above S\$1\.5M\)|both are SC/PR|only for buyers who already own|who already owns one or more properties\.')
 FACT_BAD=re.compile(r'remainder at 4%|~S\$(?:39|57|75),600|BSD (?:is approximately|via CPF:) S\$57,600|GLS Tender Closes 29 Oct|Tender closes 29 Oct|tender closes on 29 Oct')
 def facts(s):
     for a,b in FACTS: s=re.sub(a,b,s)
     if 'Orchard Boulevard' in s and '3,438' in s and '29 Oct' in s:
         for a,b in ORCH: s=re.sub(a,b,s)
+    if 'What Is ABSD In Singapore' in s:
+        for a,b in ABSD_PG: s=re.sub(a,b,s)
     if 'S$44,600' in s and 'How Much Do I Need To Buy A Condo' in s: s=re.sub(r'(Updated:(?:</strong>)?\s*)July 2026',r'\1October 2026',s).replace('Updated 2026-06-18','Updated 2026-10-31')
     return s
 # Approved tagline, keep (Emmeline 30 Oct 2026): 'Your Trusted Singapore Property Advisor' must never be scrubbed or matched by BAD.
